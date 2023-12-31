@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* SideNavbar Link */
+    button.sidebar-link {
+        @apply w-12 h-12 flex justify-center items-center rounded-3xl bg-primary-b4
+        hover:rounded-2xl active:translate-y-[1px]
+        transition-all ease-linear duration-150 cursor-pointer;
+        &.icon1 {
+            @apply text-[28px];
+        }
+        &.icon2 {
+            @apply text-[24px];
+        }
+        &.text {
+            @apply text-lg font-medium;
+        }
+        &.link1 {
+            @apply text-font-f2;
+            &:hover,
+            &.active {
+                @apply rounded-2xl text-font-f1 bg-secondary-s1;
+            }
+        }
+        &.link2 {
+            @apply text-secondary-s2;
+            &:hover,
+            &.active {
+                @apply rounded-2xl text-font-f1 bg-secondary-s2;
+            }
+        }
+        &:hover ~ span.link-side-whitetab {
+            @apply w-1 h-5;
+        }
+        &:hover ~ span.tooltip {
+            @apply opacity-100 animate-tooltip pointer-events-auto;
+        }
+    }
+    span.link-side-whitetab {
+        @apply absolute left-0 w-0 h-0 bg-white rounded-r-xl transition-all ease-linear duration-150;
+        &.active {
+            @apply w-1 h-10 !important;
+        }
+    }
+
+    /* Create Server Modal */
+    div.create-server-modal {
+        @apply fixed flex justify-center items-center w-screen h-screen z-50 opacity-0
+        transition-all ease-linear duration-100 pointer-events-none;
+        &.active {
+            @apply opacity-100 pointer-events-auto scale-100;
+            & div.create-server-card {
+                @apply animate-modal scale-100;
+            }
+        }
+        & div.create-server-card {
+            @apply absolute flex flex-col m-auto w-[440px] h-[404px] bg-white rounded-[4px] scale-75
+            transition-all ease-linear duration-100;
+        }
+    }
+}
