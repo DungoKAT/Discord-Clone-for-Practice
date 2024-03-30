@@ -1,5 +1,5 @@
 import { BsHeadphones, BsGearFill } from "react-icons/bs";
-import { MdMic, MdMicOff } from "react-icons/md";
+import { MdMic } from "react-icons/md";
 import DMChannels from "./Channels/DMChannels";
 
 const Sidebar = () => {

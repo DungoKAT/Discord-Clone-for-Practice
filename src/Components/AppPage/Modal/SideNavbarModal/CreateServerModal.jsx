@@ -40,10 +40,10 @@ const CreateServerModal = ({
                     </header>
                     <div className="flex flex-1 flex-col my-4 px-4">
                         <div className="flex justify-center pt-1 w-full">
-                            <div className="relative flex justify-center items-center w-20 h-20 border-2 border-dashed border-primary-b4 rounded-full cursor-pointer">
+                            <div className="relative flex justify-center items-center w-20 h-20 border-2 border-dashed border-primary-b5 rounded-full cursor-pointer">
                                 <div className="flex flex-col items-center">
                                     <BiSolidCamera className=" text-2xl text-primary-w1" />
-                                    <p className=" text-xs text-primary-b4">
+                                    <p className=" text-xs text-primary-b5">
                                         UPLOAD
                                     </p>
                                 </div>

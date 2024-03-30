@@ -5,7 +5,7 @@ import { RxDownload } from "react-icons/rx";
 import SideNavItem from "./SideNavItem";
 import CreateServerModal from "../Modal/SideNavbarModal/CreateServerModal";
 
-import "../../Styles/sidenavbar.css";
+import "../../../Styles/sidenavbar.css";
 
 const SideNavbar = () => {
     const [serverSelect, setServerSelect] = useState("discord");
@@ -22,7 +22,7 @@ const SideNavbar = () => {
                     setServerSelect={setServerSelect}
                     tooltipText="Direct Messages"
                 />
-                <div className="w-8 h-0.5 mb-2 bg-primary-b4"></div>
+                <div className="w-8 h-0.5 mb-2 bg-primary-b5"></div>
                 <SideNavItem
                     id="server-link-1"
                     txt={"T"}
@@ -48,7 +48,7 @@ const SideNavbar = () => {
                     setServerSelect={setServerSelect}
                     tooltipText="Explore Discoverable Servers"
                 />
-                <div className="w-8 h-0.5 mb-2 bg-primary-b4"></div>
+                <div className="w-8 h-0.5 mb-2 bg-primary-b5"></div>
                 <SideNavItem
                     id="download"
                     txt={<RxDownload />}
