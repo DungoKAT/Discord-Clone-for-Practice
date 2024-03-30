@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Featured */
+    #filter[data-department-name="Featured"]
+        button[data-department-name="Featured"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Featured"]
+        :not(button[data-department-name="Featured"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Featured"] div.job-item {
+        @apply block;
+    }
+
+    /* Activities Platform */
+    #filter[data-department-name="Activities Platform"]
+        button[data-department-name="Activities Platform"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Activities Platform"]
+        :not(button[data-department-name="Activities Platform"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Activities Platform"]
+        div.job-item[data-department-name="Activities Platform"] {
+        @apply block;
+    }
+
+    /* Communications & PR */
+    #filter[data-department-name="Communications & PR"]
+        button[data-department-name="Communications & PR"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Communications & PR"]
+        :not(button[data-department-name="Communications & PR"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Communications & PR"]
+        div.job-item[data-department-name="Communications & PR"] {
+        @apply block;
+    }
+
+    /* Consumer Marketing */
+    #filter[data-department-name="Consumer Marketing"]
+        button[data-department-name="Consumer Marketing"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Consumer Marketing"]
+        :not(button[data-department-name="Consumer Marketing"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Consumer Marketing"]
+        div.job-item[data-department-name="Consumer Marketing"] {
+        @apply block;
+    }
+
+    /* Core Tech Engineering */
+    #filter[data-department-name="Core Tech Engineering"]
+        button[data-department-name="Core Tech Engineering"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Core Tech Engineering"]
+        :not(button[data-department-name="Core Tech Engineering"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Core Tech Engineering"]
+        div.job-item[data-department-name="Core Tech Engineering"] {
+        @apply block;
+    }
+
+    /* Corporate Development */
+    #filter[data-department-name="Corporate Development"]
+        button[data-department-name="Corporate Development"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Corporate Development"]
+        :not(button[data-department-name="Corporate Development"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Corporate Development"]
+        div.job-item[data-department-name="Corporate Development"] {
+        @apply block;
+    }
+
+    /* Data Platform Engineering */
+    #filter[data-department-name="Data Platform Engineering"]
+        button[data-department-name="Data Platform Engineering"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Data Platform Engineering"]
+        :not(button[data-department-name="Data Platform Engineering"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Data Platform Engineering"]
+        div.job-item[data-department-name="Data Platform Engineering"] {
+        @apply block;
+    }
+
+    /* Legal */
+    #filter[data-department-name="Legal"] button[data-department-name="Legal"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Legal"]
+        :not(button[data-department-name="Legal"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Legal"]
+        div.job-item[data-department-name="Legal"] {
+        @apply block;
+    }
+
+    /* Machine Learning */
+    #filter[data-department-name="Machine Learning"]
+        button[data-department-name="Machine Learning"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Machine Learning"]
+        :not(button[data-department-name="Machine Learning"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Machine Learning"]
+        div.job-item[data-department-name="Machine Learning"] {
+        @apply block;
+    }
+
+    /* People Operations */
+    #filter[data-department-name="People Operations"]
+        button[data-department-name="People Operations"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="People Operations"]
+        :not(button[data-department-name="People Operations"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="People Operations"]
+        div.job-item[data-department-name="People Operations"] {
+        @apply block;
+    }
+
+    /* Policy */
+    #filter[data-department-name="Policy"]
+        button[data-department-name="Policy"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Policy"]
+        :not(button[data-department-name="Policy"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Policy"]
+        div.job-item[data-department-name="Policy"] {
+        @apply block;
+    }
+
+    /* Product Engineering */
+    #filter[data-department-name="Product Engineering"]
+        button[data-department-name="Product Engineering"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Product Engineering"]
+        :not(button[data-department-name="Product Engineering"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Product Engineering"]
+        div.job-item[data-department-name="Product Engineering"] {
+        @apply block;
+    }
+
+    /* Trust & Safety */
+    #filter[data-department-name="Trust & Safety"]
+        button[data-department-name="Trust & Safety"] {
+        @apply bg-secondary-s1 text-white;
+    }
+    #filter[data-department-name="Trust & Safety"]
+        :not(button[data-department-name="Trust & Safety"]):hover {
+        @apply text-secondary-s1;
+    }
+    #careers-items[data-department-name="Trust & Safety"]
+        div.job-item[data-department-name="Trust & Safety"] {
+        @apply block;
+    }
+}

@@ -5,7 +5,7 @@
 @layer components {
     /* SideNavbar Link */
     button.sidebar-link {
-        @apply w-12 h-12 flex justify-center items-center rounded-3xl bg-primary-b4
+        @apply w-12 h-12 flex justify-center items-center rounded-3xl bg-primary-b5
         hover:rounded-2xl active:translate-y-[1px]
         transition-all ease-linear duration-150 cursor-pointer;
         &.icon1 {
@@ -25,10 +25,10 @@
             }
         }
         &.link2 {
-            @apply text-secondary-s2;
+            @apply text-secondary-s3;
             &:hover,
             &.active {
-                @apply rounded-2xl text-font-f1 bg-secondary-s2;
+                @apply rounded-2xl text-font-f1 bg-secondary-s3;
             }
         }
         &:hover ~ span.link-side-whitetab {
