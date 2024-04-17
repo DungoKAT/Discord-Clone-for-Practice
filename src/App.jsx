@@ -1,4 +1,7 @@
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// Components
 import WebPage from "./Components/WebPage/WebPage.jsx";
 import HomePage from "./Components/WebPage/ContentPage/Home/HomePage.jsx";
 import DownloadPage from "./Components/WebPage/ContentPage/Download/DownloadPage.jsx";
@@ -16,6 +19,31 @@ import ServerPreview from "./Components/WebPage/ContentPage/Discover/ServerPrevi
 import "./App.css";
 
 function App() {
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     axios
+    //         .get(
+    //             "https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers"
+    //         )
+    //         .then((response) => {
+    //             setData(response.data);
+    //         });
+    // }, []);
+    // console.log("Data: ", data);
+
+    const loader = async ({ params }) => {
+        console.log("Params: ", params);
+        const res = await fetch(
+            `https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers/${params.serverPathName}`
+        );
+        console.log("Response: ", res);
+        if (res.status === 404) {
+            throw new Response("Not Found", { status: 404 });
+        }
+        return res.json();
+    };
+
     const router = createBrowserRouter([
         {
             path: "/",
@@ -38,8 +66,13 @@ function App() {
                     element: <DiscoverPage />,
                 },
                 {
-                    path: "/servers/server-preview",
+                    path: "/servers/:serverPathName",
                     element: <ServerPreview />,
+                    loader({ params }) {
+                        console.log("Param: ", params);
+                        // console.log("Request: ", { request });
+                        return loader({ params });
+                    },
                 },
                 {
                     path: "/safety",
