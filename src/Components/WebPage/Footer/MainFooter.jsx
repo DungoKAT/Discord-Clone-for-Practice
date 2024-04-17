@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoText from "../../../assets/Nav&Footer/logo-text.svg";
 import { BsInstagram, BsFacebook, BsYoutube } from "react-icons/bs";
 import { FaXTwitter, FaTiktok } from "react-icons/fa6";
@@ -6,10 +7,21 @@ const MainFooter = () => {
     // const countries = ["English", "English (UK)", "Thai", "Japan"];
 
     return (
-        <div className="flex w-full h-[638px] mt-auto mb-0 pt-20 pb-16 bg-primary-b4">
-            <div className="w-full h-full max-w-[1180px] mx-auto flex flex-col">
-                <div className="h-auto items-start grid grid-rows-[minmax(250px,auto)] grid-cols-12 gap-x-5">
-                    <div className="h-[122px] col-span-4">
+        <footer className="flex w-full mt-auto mb-0 pt-20 pb-16 bg-primary-b4 max-mobile479:pb-10">
+            <div className="maxWidth1180 h-full flex flex-col">
+                <div
+                    className="h-auto items-start grid grid-cols-12 gap-x-5
+                    max-mobile479:gap-y-6 max-mobile479:justify-start
+                    max-tablet767:gap-x-10 max-tablet767:gap-y-10 max-tablet767:grid-cols-2
+                    max-tablet991:gap-x-5 max-tablet991:gap-y-[60px] max-tablet991:grid-cols-7 max-tablet991:justify-start max-tablet991:items-start
+                    "
+                >
+                    <div
+                        className="h-[122px] col-span-4
+                        max-mobile479:col-span-2
+                        max-tablet767:col-span-1
+                        max-tablet991:col-span-1"
+                    >
                         <select className=" bg-transparent w-1/2 my-6 text-sm text-white font-ggsansNormal">
                             <option className=" p-2 text-sm text-black">
                                 English
@@ -42,8 +54,14 @@ const MainFooter = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="h-auto col-span-2 font-ggsansNormal">
-                        <div className=" mb-5 text-secondary-s1">Product</div>
+                    <div
+                        className="col-span-2 font-ggsansNormal
+                        max-tablet767:col-span-1 max-tablet767:row-start-2
+                        max-tablet991:col-start-4"
+                    >
+                        <h3 className="mb-5 font-bold text-secondary-s1">
+                            Product
+                        </h3>
                         <ul className="text-white">
                             <li className=" mt-2 hover:underline cursor-pointer">
                                 Download
@@ -62,8 +80,14 @@ const MainFooter = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="h-auto col-span-2 font-ggsansNormal">
-                        <div className=" mb-5 text-secondary-s1">Company</div>
+                    <div
+                        className="col-span-2 font-ggsansNormal
+                        max-tablet767:col-span-1 max-tablet767:row-start-2
+                        max-tablet991:col-start-6"
+                    >
+                        <h3 className="mb-5 font-bold text-secondary-s1">
+                            Company
+                        </h3>
                         <ul className="text-white">
                             <li className=" mt-2 hover:underline cursor-pointer">
                                 About
@@ -79,8 +103,14 @@ const MainFooter = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="h-auto col-span-2 font-ggsansNormal">
-                        <div className=" mb-5 text-secondary-s1">Resources</div>
+                    <div
+                        className="col-span-2 font-ggsansNormal
+                        max-tablet767:col-span-1 max-tablet767:row-start-3
+                        max-tablet991:col-start-4"
+                    >
+                        <h3 className="mb-5 font-bold text-secondary-s1">
+                            Resources
+                        </h3>
                         <ul className="text-white">
                             <li className=" mt-2 hover:underline cursor-pointer">
                                 College
@@ -113,12 +143,21 @@ const MainFooter = () => {
                                 Gaming
                             </li>
                             <li className=" mt-2 hover:underline cursor-pointer">
+                                Quests
+                            </li>
+                            <li className=" mt-2 hover:underline cursor-pointer">
                                 Official 3rd Party Merch
                             </li>
                         </ul>
                     </div>
-                    <div className="h-auto col-span-2 font-ggsansNormal">
-                        <div className=" mb-5 text-secondary-s1">Policies</div>
+                    <div
+                        className="col-span-2 font-ggsansNormal
+                        max-tablet767:col-span-1 max-tablet767:row-start-3
+                        max-tablet991:col-start-6"
+                    >
+                        <h3 className="mb-5 font-bold text-secondary-s1">
+                            Policies
+                        </h3>
                         <ul className="text-white">
                             <li className=" mt-2 hover:underline cursor-pointer">
                                 Terms
@@ -143,22 +182,23 @@ const MainFooter = () => {
                             </li>
                         </ul>
                     </div>
+                    {/* <div className="h-full col-span-2"></div>
                     <div className="h-full col-span-2"></div>
                     <div className="h-full col-span-2"></div>
-                    <div className="h-full col-span-2"></div>
-                    <div className="h-full col-span-2"></div>
+                    <div className="h-full col-span-2"></div> */}
                 </div>
                 <div className="w-full h-[74px] mt-8 mb-0 pt-8 flex justify-between items-center border-t-[1px] border-t-secondary-s1">
                     <img src={LogoText} alt="" width={124} height={34} />
-                    <button
+                    <Link
+                        to="/app"
                         className=" px-4 py-2 text-sm bg-secondary-s1 rounded-full text-white
                         hover:bg-secondary-s1Hover2 hover:shadow-[0_15px_15px_0px_rgba(0,0,0,0.25)] transition"
                     >
                         Open Discord
-                    </button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 
