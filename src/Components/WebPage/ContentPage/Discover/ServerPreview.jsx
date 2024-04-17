@@ -1,7 +1,5 @@
 import { useLoaderData } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
-// import MidjourneyCoverPicLg from "../../../../assets/DiscoverPage/CommuServers/Midjourney/MidjourneyCoverPicLg.jpg";
-// import MidjourneyProfilePic from "../../../../assets/DiscoverPage/CommuServers/Midjourney/MidjourneyProfilePic.jpg";
 import ChatIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/ChatIcon.svg";
 import CalendarIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/CalendarIcon.svg";
 import RobotIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/RobotIcon.svg";
