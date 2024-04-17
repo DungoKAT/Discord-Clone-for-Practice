@@ -1,35 +1,21 @@
+// components
 import Header from "./Header";
 import CareersItems from "./CareersItems";
+import ElementSlider from "./ElementSlider";
+import ImageSlider from "./ImageSlider";
 // data
 import WorkFilters from "./WorkFilters";
+import ExperienceLifeAtDiscord from "./ExperienceLifeAtDiscord";
 // assets
 import CareerSec2Pic1 from "../../../../assets/CareersPage/CareerSec2Pic1.webp";
 import CareerSec2Pic2 from "../../../../assets/CareersPage/CareerSec2Pic2.webp";
 import CareerSec2Pic3 from "../../../../assets/CareersPage/CareerSec2Pic3.webp";
 import CareerTwinkling from "../../../../assets/CareersPage/CareerTwinkling.svg";
 import Wave from "../../../../assets/CareersPage/Wave.webp";
-import CareerSlidePic1 from "../../../../assets/CareersPage/Slider/CareerSlidePic1.webp";
-import CareerSlidePic2 from "../../../../assets/CareersPage/Slider/CareerSlidePic2.webp";
-import CareerSlidePic3 from "../../../../assets/CareersPage/Slider/CareerSlidePic3.webp";
-import CareerSlidePic4 from "../../../../assets/CareersPage/Slider/CareerSlidePic4.webp";
-import CareerSlidePic5 from "../../../../assets/CareersPage/Slider/CareerSlidePic5.webp";
-import CareerSlidePic6 from "../../../../assets/CareersPage/Slider/CareerSlidePic6.webp";
-import CareerSlidePic7 from "../../../../assets/CareersPage/Slider/CareerSlidePic7.webp";
-import ArrowLeft1 from "../../../../assets/CareersPage/Arrow/ArrowLeft1.svg";
-import ArrowRight1 from "../../../../assets/CareersPage/Arrow/ArrowRight1.svg";
-import ArrowLeft2 from "../../../../assets/CareersPage/Arrow/ArrowLeft2.svg";
-import ArrowRight2 from "../../../../assets/CareersPage/Arrow/ArrowRight2.svg";
-import GreenIcon1 from "../../../../assets/CareersPage/GreenIcon/GreenIcon1.svg";
-import GreenIcon2 from "../../../../assets/CareersPage/GreenIcon/GreenIcon2.svg";
-import GreenIcon3 from "../../../../assets/CareersPage/GreenIcon/GreenIcon3.svg";
-import GreenIcon4 from "../../../../assets/CareersPage/GreenIcon/GreenIcon4.svg";
-import GreenIcon5 from "../../../../assets/CareersPage/GreenIcon/GreenIcon5.svg";
-import GreenIcon6 from "../../../../assets/CareersPage/GreenIcon/GreenIcon6.svg";
-import GreenIcon7 from "../../../../assets/CareersPage/GreenIcon/GreenIcon7.svg";
-import GreenIcon8 from "../../../../assets/CareersPage/GreenIcon/GreenIcon8.svg";
-import GreenIcon9 from "../../../../assets/CareersPage/GreenIcon/GreenIcon9.svg";
 // css
 import "../../../../Styles/workfilter.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const CareersPage = () => {
     const handleClick = (event) => {
@@ -39,62 +25,6 @@ const CareersPage = () => {
         careersItems.dataset.departmentName =
             event.target.dataset.departmentName;
     };
-    const experienceLifeAtDiscord = [
-        {
-            icon: GreenIcon1,
-            topic: "Discord HQ",
-            paragraph:
-                "Our platform is our headquarters! Because we believe great work isn't tied to a physical space, most of our roles offer flexibility — whether it's from the comfort of your home (in approved locations), an inspiring office setting or a combo of both! No matter where your desk lives, we offer generous support to help you remain productive and engaged.",
-        },
-        {
-            icon: GreenIcon2,
-            topic: "Grow together",
-            paragraph:
-                "Look forward to developing both professionally and personally alongside your colleagues at Discord. All of our managers go through a leadership program, and we offer diverse trainings for everyone. No matter what your interests or skills are, there's a place on our platform for you to find and build belonging.",
-        },
-        {
-            icon: GreenIcon3,
-            topic: "Money matters",
-            paragraph:
-                "Discord strives to offer fair and competitive compensation packages, including equity. You'll have room to grow and be rewarded based on your contributions and impact at the company.  Take advantage of our retirement offerings (including 401k matching in the U.S.) to meet your financial goals.",
-        },
-        {
-            icon: GreenIcon4,
-            topic: "Health benefits",
-            paragraph:
-                "At Discord, we health-care about you! We offer flexible health plans that cover both physical and mental healthcare.",
-        },
-        {
-            icon: GreenIcon5,
-            topic: "Family support",
-            paragraph:
-                "Spend some quality time with the next generation with parental leave, fertility, adoption, and surrogacy benefits.",
-        },
-        {
-            icon: GreenIcon6,
-            topic: "R&R",
-            paragraph:
-                "Stay refreshed with four weeks of PTO, 14+ paid holidays and flexible sick time (which includes mental health days).",
-        },
-        {
-            icon: GreenIcon7,
-            topic: "Gender-affirming care",
-            paragraph:
-                "Many medical insurance providers consider much of the treatment vital to one’s gender transition as cosmetic. We don’t. Use up to $20,000 for transition-related procedures.",
-        },
-        {
-            icon: GreenIcon8,
-            topic: "Wellness on us",
-            paragraph:
-                "Take advantage of a quarterly stipend for your gym membership or other activities to keep you feeling great. Plus virtual yoga every week!",
-        },
-        {
-            icon: GreenIcon9,
-            topic: "Giving back",
-            paragraph:
-                "Whatever social cause you’re passionate about, take a day (or two) off to make an impact. While you're at it, take advantage of $1,000/year in donation matching to charitable organizations!",
-        },
-    ];
 
     return (
         <div className="w-full">
@@ -300,56 +230,7 @@ const CareersPage = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="relative max-w-[900px] w-full min-h-[400px] h-full mt-[60px] mb-20 mx-auto bg-white rounded-[14px] shadow-[2px_2px_4px_rgba(0,0,0,.07)]">
-                            <div className="relative w-full h-[400px] py-[37px] pl-10 pr-[70px] overflow-hidden">
-                                <div className="w-full flex items-center">
-                                    <img
-                                        className="max-w-[200px] w-full mr-10 rounded-md"
-                                        src={CareerSlidePic1}
-                                        alt=""
-                                    />
-                                    <div>
-                                        <h5 className="my-[10px] text-xl font-semibold font-ggsans text-[#060a0b] leading-[26px]">
-                                            Pride
-                                        </h5>
-                                        <p className="my-5 text-base font-ggsansNormal text-[#2c2f33] leading-6">
-                                            The Discord Pride Employee Resource
-                                            Group is a safe haven for the
-                                            LGBTQIA2S+ community and its allies.
-                                            It offers education, belonging and a
-                                            place to celebrate the identity of
-                                            its members. Discord’s Pride ERG has
-                                            made an impact on the community at
-                                            the company and beyond by offering
-                                            LGBTQIA2S+-inclusive and informed
-                                            guidance regarding policy and
-                                            benefits, including comprehensive
-                                            transitioning benefits and improved
-                                            access to gender-affirming
-                                            healthcare. The group also hosts fun
-                                            and educational events like allyship
-                                            training, employee panels and
-                                            community involvement with partners
-                                            like GLSEN.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <button className="absolute w-[50px] h-[50px] top-0 bottom-0 left-0 right-auto -ml-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full">
-                                <img
-                                    className="w-[22px]"
-                                    src={ArrowLeft1}
-                                    alt=""
-                                />
-                            </button>
-                            <button className="absolute w-[50px] h-[50px] top-0 bottom-0 left-auto right-0 -mr-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full">
-                                <img
-                                    className="w-[22px]"
-                                    src={ArrowRight1}
-                                    alt=""
-                                />
-                            </button>
-                        </div>
+                        <ElementSlider />
                     </div>
                 </div>
             </section>
@@ -359,7 +240,7 @@ const CareersPage = () => {
                         Experience Life @ Discord
                     </h2>
                     <div className="mt-[120px] px-[30px] grid grid-cols-3 gap-x-20 gap-y-10">
-                        {experienceLifeAtDiscord.map((item, index) => {
+                        {ExperienceLifeAtDiscord.map((item, index) => {
                             return (
                                 <div key={index}>
                                     <img
@@ -417,17 +298,7 @@ const CareersPage = () => {
                         </p>
                     </div>
                 </div>
-                <div className="relative max-w-[100vw] w-full h-[340px] flex overflow-hidden">
-                    <div className="w-[640px] h-[340px] whitespace-nowrap">
-                        <div className="mr-5"></div>
-                    </div>
-                    <div className="absolute w-16 h-16 my-auto pr-1 top-0 bottom-0 left-10 right-auto flex justify-center items-center bg-[rgba(35,39,42,.4)] rounded-full">
-                        <img src={ArrowLeft2} alt="" />
-                    </div>
-                    <div className="absolute w-16 h-16 my-auto pl-1 top-0 bottom-0 left-auto right-10 flex justify-center items-center bg-[rgba(35,39,42,.4)] rounded-full">
-                        <img src={ArrowRight2} alt="" />
-                    </div>
-                </div>
+                <ImageSlider />
             </section>
         </div>
     );
