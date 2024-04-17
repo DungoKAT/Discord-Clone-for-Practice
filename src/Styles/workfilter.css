@@ -182,4 +182,8 @@
         div.job-item[data-department-name="Trust & Safety"] {
         @apply block;
     }
+
+    .slick-slide > div {
+        @apply mr-5;
+    }
 }

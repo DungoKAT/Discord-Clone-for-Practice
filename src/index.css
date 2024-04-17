@@ -37,6 +37,14 @@
     div.backdrop {
         @apply absolute w-full h-full bg-black opacity-[0.825];
     }
+
+    .maxWidth1180 {
+        @apply max-w-[1180px] w-[90%] mx-auto
+    }
+
+}
+.slick-slide > div {
+    margin: 0 10px;
 }
 
 @keyframes tooltip-popup {
