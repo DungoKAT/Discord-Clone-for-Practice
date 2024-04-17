@@ -1,17 +1,22 @@
 import { useState } from "react";
+// Components
+import Header from "./Header";
+import BannerBox from "./BannerBox";
+import PerkGroup1 from "./PerkGroup1";
+import PerkGroup2 from "./PerkGroup2";
+// Data
+import Banners from "./Banners";
 import QuestionBox from "./QuestionBox";
 import Questions from "./Questions";
-import Banners from "./Banners";
 import Perks from "./Perks";
 import Plans from "./Plans";
-// Nitro Hero Section
-import HeroIcon2 from "../../../../assets/NitroPage/HeroIcon2.webp";
 // Niro Banners
 import NitroBasicText from "../../../../assets/NitroPage/NitroBanners/NitroBasicText.svg";
 import NitroText from "../../../../assets/NitroPage/NitroBanners/NitroText.svg";
 // Niro Plans
 import NitroIconBlack from "../../../../assets/NitroPage/NitroPlans/NitroIconBlack.svg";
 import NitroBasicIconBlack from "../../../../assets/NitroPage/NitroPlans/NitroBasicIconBlack.svg";
+import NitroBasicSmallIcon from "../../../../assets/NitroPage/NitroPlans/NitroBasicSmallIcon.svg";
 import MostPopular from "../../../../assets/NitroPage/NitroPlans/MostPopular.svg";
 // Bottom Section
 import RabbitSideWall from "../../../../assets/NitroPage/RabbitSideWall.svg";
@@ -39,7 +44,6 @@ const NitroPage = () => {
         },
     ];
 
-    const [isShowPerks, setIsShowPerks] = useState(false);
     const [tabSelected, setTabSelected] = useState(tabs[2]);
     const [questionOpen, setQuestionOpen] = useState(-1);
 
@@ -56,186 +60,119 @@ const NitroPage = () => {
 
     return (
         <div className="w-full h-auto flex flex-col">
-            <header
-                className={`relative w-full h-[38vw] flex flex-col justify-center bg-heroPatternNitro bg-center bg-cover`}
+            <Header />
+            <section
+                className="relative w-full pt-[100px] pb-5 z-10
+                max-mobile479:mt-20 max-mobile479:pt-[30px] max-mobile479:pb-[60px]
+                max-tablet991:pt-[100px] max-tablet991:pb-20"
             >
-                <div className="relative w-[1120px] mx-auto flex">
-                    <div className="max-w-[420px]">
-                        <h1 className=" mb-6 text-[50px] text-white font-extrabold font-gintoNord leading-none">
-                            Unleash more fun with Nitro
-                        </h1>
-                        <p className="mb-4 pr-6 text-xl text-white font-ggsansNormal">
-                            Subscribe to Nitro to upgrade your emoji,
-                            personalize your profile,&nbsp;&nbsp;share bigger
-                            files, and so much more.
-                        </p>
-                    </div>
-                    <div className="relative w-full flex justify-center items-center">
-                        <img
-                            className="absolute w-full -top-48 -right-10"
-                            src={HeroIcon2}
-                            alt=""
+                <div className="maxWidth1180">
+                    <div
+                        className="-mt-[230px] mb-[90px] flex justify-between gap-4
+                        max-mobile479:mt-[-810px]
+                        max-tablet767:mt-[-850px] max-tablet767:mb-20
+                        max-tablet991:mt-[-860px] max-tablet991:flex-col"
+                    >
+                        <BannerBox
+                            banner={Banners.nitroBasic}
+                            image={NitroBasicText}
+                            bannerCheck="Nitro Basic"
+                        />
+                        <BannerBox
+                            banner={Banners.nitro}
+                            image={NitroText}
+                            bannerCheck="Nitro"
                         />
                     </div>
                 </div>
-            </header>
-            <section className="relative w-full pt-[100px] pb-5 z-10">
-                <div className="w-[1180px] mx-auto">
-                    <div className="-mt-[230px] mb-[90px] flex justify-between">
-                        <div className="w-[49%] h-[416px] p-6 flex flex-col justify-start items-start bg-[linear-gradient(225deg,#007cc2,#5865f2)] rounded-lg">
-                            <img
-                                className=" mb-6"
-                                src={NitroBasicText}
-                                alt=""
-                            />
-                            {Banners.map((data, index) => {
-                                if (index <= 4 && index != 1) {
-                                    return (
-                                        <div className="mb-4 flex" key={index}>
-                                            <img
-                                                className=" w-5 h-5 mt-1 mr-[10px]"
-                                                src={data.icon}
-                                                alt=""
-                                            />
-                                            <p className=" text-xl text-white font-ggsansNormal">
-                                                {data.text}
-                                            </p>
-                                        </div>
-                                    );
-                                }
-                            })}
-                            <button className="w-full mt-auto mb-0 py-[14px] px-4 bg-white text-xl font-ggsans rounded-full leading-6">
-                                Subscribe
-                            </button>
-                        </div>
-                        <div className="w-[49%] h-[416px] p-6 flex flex-col justify-start items-start bg-[linear-gradient(135deg,#8547c6,#b845c1,#ab5d8a)] rounded-lg">
-                            <img className=" mb-6" src={NitroText} alt="" />
-                            {Banners.map((data, index) => {
-                                if (index != 0 && index != 4) {
-                                    return (
-                                        <div className="mb-4 flex" key={index}>
-                                            <img
-                                                className=" w-5 h-5 mt-1 mr-[10px]"
-                                                src={data.icon}
-                                                alt=""
-                                            />
-                                            <p className=" text-xl text-white font-ggsansNormal">
-                                                {data.text}
-                                            </p>
-                                        </div>
-                                    );
-                                }
-                            })}
-                            <button className="w-full mt-auto mb-0 py-[14px] px-4 bg-white text-xl font-ggsans rounded-full leading-6">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-[1180px] mx-auto flex flex-col items-center">
-                    <h2 className=" text-5xl font-semibold font-gintoNormal text-center leading-[58px]">
+                <div className="relative maxWidth1180 flex flex-col items-center">
+                    <h2
+                        className="text-5xl font-semibold font-gintoNormal text-center leading-[58px]
+                        max-mobile479:leading-[42px]
+                        max-tablet767:text-[32px] max-tablet767:leading-[140%]"
+                    >
                         Popular Nitro Perks
                     </h2>
-                    <div className=" mt-[60px] grid grid-rows-2 grid-cols-2 gap-5">
-                        {Perks[0].perkGroup1.map((perk1, index) => {
-                            return (
-                                <div
-                                    className="w-[580px] h-[376px] p-10 flex flex-col gap-y-8 justify-center items-center bg-primary-w5 rounded-lg"
-                                    key={index}
-                                >
-                                    <h5
-                                        className={` max-w-[${perk1.maxWidthTopic}px] mx-auto text-2xl font-semibold font-gintoNormal text-center`}
-                                    >
-                                        {perk1.topic}
-                                    </h5>
-                                    <img src={perk1.pic} alt="" />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <PerkGroup1 perk={Perks[0].perkGroup1} />
+                    <PerkGroup2 perk={Perks[0].perkGroup2} />
                     <div
-                        className={
-                            (isShowPerks
-                                ? " max-h-[1000px] opacity-100"
-                                : " max-h-0 opacity-0") +
-                            " w-[1220px] p-5 grid grid-rows-2 grid-cols-3 gap-5 transition-all duration-[350ms] overflow-hidden"
-                        }
+                        className="max-w-[1180px] w-full mt-[100px] mb-[120px] mx-auto pt-[70px] pb-[100px] pl-[100px] pr-[80px] bg-primary-w5 rounded-lg
+                        max-mobile479:w-[calc(100%+32px)] max-mobile479:my-[50px] max-mobile479:-mx-4 max-mobile479:pb-[60px]
+                        max-tablet991:w-[calc(100%+60px)] max-tablet991:my-20 max-tablet991:mx-[-30px] max-tablet991:pt-10 max-tablet991:pb-20 max-tablet991:px-6 max-tablet991:shadow-[-20px_0_#f6f6f6,20px_0_#f6f6f6]"
                     >
-                        {Perks[0].perkGroup2.map((perk2, index) => {
-                            return (
-                                <div
-                                    className="w-[380px] h-[322px] py-10 px-6 flex flex-col gap-y-4 justify-start items-center bg-primary-w5 rounded-lg"
-                                    key={index}
-                                >
-                                    <img src={perk2.pic} alt="" />
-                                    <div className="flex flex-col justify-center items-center gap-y-2">
-                                        <h5
-                                            className={`mx-auto text-xl font-semibold font-gintoNormal text-center`}
-                                        >
-                                            {perk2.topic}
-                                        </h5>
-                                        <p
-                                            className={`max-w-[${perk2.maxWidthText}px] text-sm font-ggsansNormal text-center`}
-                                        >
-                                            {perk2.text}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <div className="w-full flex justify-center">
-                        <button
-                            className=" pt-3 px-8  pb-[15px] bg-primary-b4 text-base text-white font-ggsans rounded-full z-10"
-                            onClick={() => setIsShowPerks(!isShowPerks)}
+                        <h2
+                            className="max-w-[580px] mx-auto mb-20 text-5xl font-semibold font-gintoNormal text-center leading-tight
+                            max-mobile479:leading-[42px]
+                            max-tablet767:text-[32px] max-tablet767:leading-[140%]
+                            max-tablet991:mb-10 max-tablet991:leading-[56px]"
                         >
-                            {isShowPerks ? "Show less perks" : "Show all perks"}
-                        </button>
-                    </div>
-                    <div className="relative w-full mt-[100px] mb-[120px] pt-[70px] pb-[100px] pl-[100px] pr-[80px] bg-primary-w5 rounded-lg">
-                        <h2 className="max-w-[580px] mx-auto mb-20 text-5xl font-semibold font-gintoNormal text-center leading-tight">
                             Pick the plan that works best for you
                         </h2>
-                        <div className="relative w-full">
-                            <div className="w-full pb-4 grid grid-cols-[2fr,minmax(200px,200px),minmax(200px,200px)] border-b border-[#c7ccd1]">
-                                <h3 className=" max-w-fit text-xl font-semibold font-gintoNormal leading-[140%]">
+                        <div className="relative w-full max-mobile479:h-[108%] max-tablet991:h-[80%]">
+                            <div
+                                className="w-full pb-4 grid grid-cols-[2fr,minmax(200px,200px),minmax(200px,200px)] grid-rows-1 border-b border-[#c7ccd1]
+                                max-tablet767:grid-cols-[2fr,1fr,1fr] 
+                                max-tablet991:grid-cols-[1.5fr,minmax(200px,200px),minmax(186px,186px)] max-tablet991:gap-x-4"
+                            >
+                                <h3 className="text-xl font-semibold font-gintoNormal leading-[140%] max-tablet767:leading-none max-tablet767:opacity-0 max-tablet767:pointer-events-none">
                                     Features
                                 </h3>
-                                <div className="min-h-[52px] pt-[10px] flex justify-center items-start">
-                                    <img src={NitroBasicIconBlack} alt="" />
+                                <div className="min-h-[52px] pt-[10px] flex justify-center items-start  max-tablet767:min-h-0">
+                                    <img
+                                        className="tablet767:hidden"
+                                        src={NitroBasicSmallIcon}
+                                        alt=""
+                                    />
+                                    <img
+                                        className="max-tablet767:hidden"
+                                        src={NitroBasicIconBlack}
+                                        alt=""
+                                    />
                                 </div>
-                                <div className="relative min-h-[52px] pt-[10px] pl-5 flex justify-center items-start">
-                                    <img src={NitroIconBlack} alt="" />
+                                <div className="relative min-h-[52px] pt-[10px] pl-5 flex justify-center items-start max-tablet767:min-h-0 max-tablet991:pl-0">
+                                    <img
+                                        className="max-mobile479:top-[5px] max-tablet767:max-w-[51px]"
+                                        src={NitroIconBlack}
+                                        alt=""
+                                    />
                                 </div>
                             </div>
                             {Plans.map((plans, index) => {
                                 return (
                                     <div
-                                        className="w-full min-h-[68px] justify-center grid grid-cols-[2fr,minmax(180px,180px),minmax(180px,180px)] gap-x-[30px] border-b border-[#c7ccd1]"
+                                        className="w-full min-h-[68px] justify-center grid grid-cols-[2fr,minmax(180px,180px),minmax(180px,180px)] gap-x-[30px] border-b border-[#c7ccd1]
+                                        max-mobile479:pt-[10px] max-mobile479:pb-[10px] max-mobile479:gap-x-[10px]
+                                        max-tablet767:grid-cols-[2fr,1fr,1fr]
+                                        max-tablet991:grid-cols-[1.5fr,minmax(180px,180px),minmax(186px,186px)]"
                                         key={index}
                                     >
-                                        <p className="flex items-center text-lg font-ggsansNormal">
+                                        <p className="flex items-center text-lg font-ggsansNormal max-tablet767:text-base max-tablet767:leading-5  max-tablet991:text-[14px]">
                                             {plans.feature}
                                         </p>
-                                        <div className="flex justify-center items-center">
+                                        <div className="min-h-[52px] flex justify-center items-center">
                                             {plans.nitroBasic.includes(
                                                 "/src"
                                             ) ? (
                                                 <img
+                                                    className="max-mobile479:max-w-[14px]"
                                                     src={plans.nitroBasic}
                                                     alt=""
                                                 />
                                             ) : (
-                                                <p className=" text-base font-ggsans">
+                                                <p className="text-base font-ggsans text-center max-mobile479:text-sm max-tablet767:font-ggsansNormal">
                                                     {plans.nitroBasic}
                                                 </p>
                                             )}
                                         </div>
-                                        <div className="flex justify-center items-center">
+                                        <div className="min-h-[52px] flex justify-center items-center">
                                             {plans.nitro.includes("/src") ? (
-                                                <img src={plans.nitro} alt="" />
+                                                <img
+                                                    className="max-mobile479:max-w-[14px]"
+                                                    src={plans.nitro}
+                                                    alt=""
+                                                />
                                             ) : (
-                                                <p className=" text-base font-ggsans">
+                                                <p className="text-base font-ggsans text-center max-mobile479:text-sm max-tablet767:font-ggsansNormal">
                                                     {plans.nitro}
                                                 </p>
                                             )}
@@ -243,33 +180,56 @@ const NitroPage = () => {
                                     </div>
                                 );
                             })}
-                            <div className="w-full min-h-[68px] pt-6 justify-center grid grid-cols-[2fr,minmax(180px,180px),minmax(180px,180px)] gap-x-[30px]">
-                                <div className="w-full h-full"></div>
+                            <div
+                                className="relative w-full min-h-[68px] pt-6 justify-center grid grid-cols-[2fr,minmax(180px,180px),minmax(180px,180px)] gap-x-[30px]
+                                max-mobile479:pb-[10px] max-mobile479:gap-x-[10px]
+                                max-tablet767:pt-6 max-tablet767:top-[30px] max-tablet767:grid-cols-[0.5fr,1fr] max-tablet767:gap-y-6
+                                max-tablet991:grid-cols-[1.5fr,minmax(180px,180px),minmax(186px,186px)] max-tablet991:gap-y-6"
+                            >
+                                <div className="w-full h-full max-tablet767:hidden"></div>
+                                <img
+                                    className="hidden max-tablet767:block"
+                                    src={NitroBasicIconBlack}
+                                    alt=""
+                                />
                                 <div className="min-h-[52px] flex justify-center items-center">
                                     <button className="w-full mb-[14px] py-[7px] px-4 text-sm text-white font-ggsans bg-secondary-s1 rounded-full leading-[24px] z-10">
                                         Subscribe Basic
                                     </button>
                                 </div>
+                                <img
+                                    className="hidden max-tablet767:block"
+                                    src={NitroIconBlack}
+                                    alt=""
+                                />
                                 <div className="min-h-[52px] flex justify-center items-center">
                                     <button className="w-full mb-[14px] py-[7px] px-4 text-sm text-white font-ggsans bg-secondary-s1 rounded-full leading-[24px] z-10">
                                         Subscribe Nitro
                                     </button>
                                 </div>
                             </div>
-                            <div className="absolute max-w-[210px] w-full h-[104%] -mt-[30px] -mr-4 top-0 bottom-0 left-auto right-0 border-2 border-[#b845c1] rounded-2xl">
+                            <div
+                                className="absolute max-w-[210px] w-full h-[104%] -mt-[3%] -mr-4 top-0 bottom-0 left-auto right-0 border-2 border-[#b845c1] rounded-2xl pointer-events-none
+                                max-tablet767:w-[25vw] max-tablet767:h-[90%]
+                                max-tablet991:w-[30vw] max-tablet991:h-[103%] max-tablet991:-mr-3"
+                            >
                                 <img
-                                    className="-mt-[13px] mx-auto"
+                                    className="-mt-[13px] mx-auto max-tablet767:hidden"
                                     src={MostPopular}
                                     alt=""
                                 />
                             </div>
                         </div>
                     </div>
-                    <h2 className="text-5xl font-semibold font-gintoNormal text-center">
+                    <h2
+                        className="text-5xl font-semibold font-gintoNormal text-center
+                        max-mobile479:leading-[42px]
+                        max-tablet767:text-[32px] max-tablet767:leading-[140%]"
+                    >
                         Frequently Asked Questions
                     </h2>
-                    <div className="relative w-full mt-10">
-                        <div className="w-full mb-8 flex justify-center items-center">
+                    <div className="relative w-full mt-10 max-tablet767:mt-4">
+                        <div className="w-full mb-8 flex justify-center items-center max-mobile479:flex-wrap">
                             {tabs.map((button, index) => {
                                 return (
                                     <button
@@ -314,32 +274,40 @@ const NitroPage = () => {
                     </div>
                 </div>
                 <img
-                    className="absolute top-auto bottom-[519px] left-auto right-0"
+                    className="absolute top-auto bottom-[519px] left-auto right-0 max-tablet991:hidden"
                     src={RabbitSideWall}
                     alt=""
                 />
                 <img
-                    className="absolute top-auto bottom-[170px] left-[2vw]"
+                    className="absolute top-auto bottom-[170px] left-[2vw] max-tablet991:hidden max-desktop1440:left-0"
                     src={Twinkling}
                     alt=""
                 />
             </section>
-            <section className="relative w-full min-h-[406px] py-[92px] flex justify-center items-center bg-[linear-gradient(135deg,#8547c6_10%,#b845c1_50%,#ab5d8a)]">
-                <div className="max-w-[612px] flex flex-col justify-center items-center">
-                    <h2 className="mb-8 text-[42px] font-semibold text-white font-gintoNormal">
+            <section
+                className="relative w-full min-h-[406px] py-[92px] flex justify-center items-center bg-[linear-gradient(135deg,#8547c6_10%,#b845c1_50%,#ab5d8a)]
+                max-tablet767:pt-20 max-tablet767:pb-20
+                max-tablet991:min-h-0"
+            >
+                <div className="max-w-[612px] w-[90%] mx-auto flex flex-col justify-center items-center">
+                    <h2
+                        className="mb-8 text-[42px] font-semibold text-white font-gintoNormal leading-[50px]
+                        max-mobile479:text-2xl
+                        max-tablet767:mb-6 max-tablet767:text-[32px] max-tablet767:leading-10"
+                    >
                         Unleash the fun with Nitro
                     </h2>
-                    <button className="min-w-[193px] py-4 px-8 flex justify-center text-xl font-ggsansNormal bg-white rounded-full leading-6">
+                    <button className="min-w-[193px] py-4 px-8 flex justify-center text-xl font-ggsansNormal bg-white rounded-full leading-6 max-mobile479:w-full">
                         Subscribe
                     </button>
                 </div>
                 <img
-                    className="absolute max-w-[25%] left-0"
+                    className="absolute max-w-[25%] left-0 max-tablet991:hidden"
                     src={BottomSectionPic1}
                     alt=""
                 />
                 <img
-                    className="absolute max-w-[22%] right-0"
+                    className="absolute max-w-[22%] right-0 max-tablet991:hidden"
                     src={BottomSectionPic2}
                     alt=""
                 />

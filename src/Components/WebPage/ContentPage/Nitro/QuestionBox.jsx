@@ -42,7 +42,7 @@ const QuestionBox = ({
                 (questionOpen === questionIndex
                     ? "bg-secondary-s1 text-white"
                     : "bg-primary-w5 text-black") +
-                " relative inline-block w-full h-fit mb-4 rounded-lg transition-all"
+                " relative inline-block w-full h-fit mb-4 rounded-lg transition-all max-mobile479:mb-[6px]"
             }
         >
             <div

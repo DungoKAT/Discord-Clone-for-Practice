@@ -62,13 +62,13 @@ const Perks = [
             {
                 pic: NitroPerk9,
                 topic: "Unlimited Super Reactions",
-                text: "Hype up the chat wih action- packed, animated reactions.",
+                text: "Hype up the chat with action- packed, animated reactions.",
                 maxWidthText: 185,
             },
             {
                 pic: NitroPerk10,
                 topic: "More Backgrounds",
-                text: "Customize video calls with your own video bacgrounds.",
+                text: "Customize video calls with your own video backgrounds.",
                 maxWidthText: 230,
             },
         ],

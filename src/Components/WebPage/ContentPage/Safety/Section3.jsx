@@ -9,7 +9,7 @@ const Section3 = ({ safetyCenter }) => {
             <div className="max-w-[980px] w-full h-full mb-[60px] mx-[470px] flex flex-col justify-between">
                 {safetyCenter.map((item, index) => {
                     return (
-                        <>
+                        <div key={index}>
                             <Link
                                 to={"/safety-" + item.path}
                                 className="w-full grid grid-cols-[1fr,.94fr] gap-x-[54px]"
@@ -52,7 +52,7 @@ const Section3 = ({ safetyCenter }) => {
                                 />
                             </Link>
                             <div className=" w-0 pb-[72px]"></div>
-                        </>
+                        </div>
                     );
                 })}
 
