@@ -37,21 +37,46 @@ const MainFooter = () => {
                             </option>
                         </select>
                         <div className=" h-8 mt-6 flex text-white">
-                            <div className="mr-6">
+                            <a
+                                className="mr-6"
+                                href="https://twitter.com/discord"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <FaXTwitter className=" text-2xl" />
-                            </div>
-                            <div className="mr-6">
+                            </a>
+                            <a
+                                className="mr-6"
+                                href="https://www.instagram.com/discord/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <BsInstagram className=" text-2xl" />
-                            </div>
-                            <div className="mr-6">
+                            </a>
+                            <a
+                                className="mr-6"
+                                href="https://www.facebook.com/discord/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <BsFacebook className=" text-2xl" />
-                            </div>
-                            <div className="mr-6">
+                            </a>
+                            <a
+                                className="mr-6"
+                                href="https://www.youtube.com/discord"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <BsYoutube className=" text-2xl" />
-                            </div>
-                            <div className="mr-6">
+                            </a>
+                            <a
+                                className="mr-6"
+                                href="https://www.tiktok.com/@discord"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <FaTiktok className=" text-2xl" />
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div
