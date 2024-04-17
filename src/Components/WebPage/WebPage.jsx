@@ -5,7 +5,10 @@ import { Outlet } from "react-router-dom";
 
 const WebPage = () => {
     return (
-        <div className="w-full h-full relative flex flex-col overflow-x-hidden overflow-y-scroll">
+        <div
+            className="w-full h-full relative flex flex-col overflow-x-hidden overflow-y-scroll"
+            id="web-page"
+        >
             <MainNavbar />
             <Outlet />
             <MainFooter />
