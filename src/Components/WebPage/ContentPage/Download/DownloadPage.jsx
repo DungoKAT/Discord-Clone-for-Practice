@@ -1,12 +1,13 @@
 import { useState } from "react";
-import HeroPic from "../../../../assets/DownloadPage/Hero-pic.svg";
+// Components
+import Header from "./Header";
+import PlatformCard from "./PlatformCard";
+// assets
 import IosPhone from "../../../../assets/DownloadPage/Ios-phone.svg";
 import AndroidPhone from "../../../../assets/DownloadPage/Android-phone.svg";
 import Linux from "../../../../assets/DownloadPage/Linux.svg";
 import Mac from "../../../../assets/DownloadPage/Mac.svg";
-import { HiDownload } from "react-icons/hi";
-import { IoIosArrowDown } from "react-icons/io";
-import PlatformCard from "./PlatformCard";
+import ArrowDown from "../../../../assets/DownloadPage/ArrowDown.svg";
 
 const DownloadPage = () => {
     const [isOpenSelection, setIsOpenSelection] = useState(false);
@@ -34,65 +35,78 @@ const DownloadPage = () => {
 
     return (
         <div className="w-full h-auto flex flex-col">
-            <section className=" pt-[210px] pb-[120px] bg-primary-b4">
-                <div className=" mx-[370px] grid grid-cols-2 gap-x-10">
-                    <div className="flex flex-col justify-center">
-                        <h1 className=" mb-6 text-[50px] font-extrabold text-white font-gintoNord leading-[50px]">
-                            GET DISCORD FOR ANY DEVICE
-                        </h1>
-                        <p className="mb-5 text-xl text-white font-ggsansNormal">
-                            An adventure awaits. Hang out with your friends on
-                            our desktop app and keep the conversation going on
-                            mobile.
-                        </p>
-                        <div className=" mt-[10px] flex items-center">
-                            <button className=" py-[14px] px-[32px] bg-secondary-s1 rounded-full">
-                                <p className=" -my-0.5 flex items-center text-xl text-white font-ggsansNormal">
-                                    <HiDownload className=" mr-3 text-2xl" />
-                                    Download for Windows
-                                </p>
-                            </button>
-                            <span className=" ml-6 text-base text-white font-ggsansNormal">
-                                Windows 7 or higher
-                            </span>
-                        </div>
-                    </div>
-                    <img src={HeroPic} alt="" width="100%" />
-                </div>
-            </section>
-            <section className="pt-[120px] pb-[140px]">
-                <div className="mx-[370px]">
-                    <div className="grid grid-cols-2 grid-rows-[minmax(auto,160px),minmax(auto,420px),minmax(auto,160px),420px,auto,auto] gap-5">
+            <Header />
+            <section className="pt-[120px] pb-[64px] max-tablet991:pt-[60px]">
+                <div className="maxWidth1180">
+                    <div
+                        className="grid grid-cols-2 grid-rows-[minmax(auto,160px),minmax(auto,420px),minmax(auto,160px),auto,minmax(auto,120px),auto] gap-5
+                        max-tablet767:flex max-tablet767:flex-col
+                        max-tablet991:grid-cols-[49%,49%]"
+                    >
                         <PlatformCard
                             text="iOS"
-                            height={600}
+                            maxHeightBase={600}
+                            maxHeight1={400}
+                            maxHeight2={500}
                             image={IosPhone}
                         />
                         <PlatformCard
                             text="Android"
-                            height={600}
+                            maxHeightBase={600}
+                            maxHeight1={400}
+                            maxHeight2={500}
                             image={AndroidPhone}
                             style={"col-start-2 row-start-2"}
                         />
-                        <PlatformCard text="Linux" height={600} image={Linux} />
-                        <PlatformCard text="Mac" height={560} image={Mac} />
-                        <div className="w-[580px] py-12 px-10 flex flex-col justify-center bg-primary-w5 rounded-2xl row-span-2">
-                            <h2 className="text-[32px] font-bold font-gintoNormal leading-10">
-                                Feeding experimental?
+                        <PlatformCard
+                            text="Linux"
+                            maxHeightBase={600}
+                            maxHeight1={400}
+                            maxHeight2={500}
+                            image={Linux}
+                        />
+                        <PlatformCard
+                            text="Mac"
+                            maxHeightBase={560}
+                            maxHeight1={560}
+                            maxHeight2={560}
+                            image={Mac}
+                        />
+                        <div
+                            className="max-h-[290px] py-12 px-10 flex flex-col justify-start items-start bg-primary-w5 rounded-2xl row-span-2
+                            max-tablet767:max-h-none
+                            max-tablet991:py-10 max-tablet991:px-5"
+                        >
+                            <h2
+                                className="text-[32px] font-bold font-gintoNormal leading-10
+                                max-tablet767:text-[24px] max-tablet767:leading-[22px]
+                                max-tablet991:text-[25px]"
+                            >
+                                Feeling experimental?
                             </h2>
-                            <p className=" mt-6 text-xl font-ggsansNormal">
+                            <p
+                                className=" mt-6 text-xl font-ggsansNormal
+                                max-mobile479:text-[16px] max-mobile479:leading-[22px]
+                                max-tablet767:text-[17px] max-tablet767:leading-[24px]"
+                            >
                                 Try our Public Test Build and test new features
                                 before they launch.
                             </p>
                             <div className="relative w-full mt-6">
                                 <button
-                                    className=" py-4 px-8 flex text-xl text-white font-ggsansNormal bg-primary-b4 rounded-full leading-5"
+                                    className="pt-[12px] pb-[15px] px-8 flex justify-center text-xl text-white font-ggsansNormal bg-primary-b4 rounded-full leading-6
+                                    max-mobile479:w-full max-mobile479:whitespace-normal
+                                    max-tablet991:px-5 "
                                     onClick={() =>
                                         setIsOpenSelection(!isOpenSelection)
                                     }
                                 >
                                     Download Public Test Build
-                                    <IoIosArrowDown className=" -mb-1.5 -mr-1 ml-2 text-[25px]" />
+                                    <img
+                                        className="w-[25px] h-[25px] -mb-1.5 -mr-1 ml-2 invert"
+                                        src={ArrowDown}
+                                        alt=""
+                                    />
                                 </button>
                                 <div
                                     className={`${
@@ -110,6 +124,32 @@ const DownloadPage = () => {
                                         );
                                     })}
                                 </div>
+                            </div>
+                        </div>
+                        <div
+                            className="py-12 px-10 flex flex-col justify-start items-start bg-primary-w5 rounded-2xl row-span-2
+                            max-tablet767:max-h-none
+                            max-tablet991:py-10 max-tablet991:px-5"
+                        >
+                            <h2
+                                className="text-[32px] font-bold font-gintoNormal leading-10
+                                max-tablet767:text-[24px] max-tablet767:leading-[22px]
+                                max-tablet991:text-[25px]"
+                            >
+                                From the archives:
+                            </h2>
+                            <p
+                                className=" mt-6 text-xl font-ggsansNormal
+                                max-mobile479:text-[16px] max-mobile479:leading-[22px]
+                                max-tablet767:text-[17px] max-tablet767:leading-[24px]"
+                            >
+                                Windows 7/8/8.1 users can download on official,
+                                but unsupported client here until June 15, 2024.
+                            </p>
+                            <div className="relative w-full mt-6">
+                                <button className=" py-4 px-8 flex text-xl text-white font-ggsansNormal bg-primary-b4 rounded-full leading-5">
+                                    Download
+                                </button>
                             </div>
                         </div>
                     </div>
