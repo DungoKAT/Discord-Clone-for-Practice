@@ -182,10 +182,6 @@ const MainFooter = () => {
                             </li>
                         </ul>
                     </div>
-                    {/* <div className="h-full col-span-2"></div>
-                    <div className="h-full col-span-2"></div>
-                    <div className="h-full col-span-2"></div>
-                    <div className="h-full col-span-2"></div> */}
                 </div>
                 <div className="w-full h-[74px] mt-8 mb-0 pt-8 flex justify-between items-center border-t-[1px] border-t-secondary-s1">
                     <img src={LogoText} alt="" width={124} height={34} />
