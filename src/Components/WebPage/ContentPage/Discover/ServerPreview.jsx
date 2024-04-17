@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
 import MidjourneyCoverPicLg from "../../../../assets/DiscoverPage/CommuServers/Midjourney/MidjourneyCoverPicLg.jpg";
 import MidjourneyProfilePic from "../../../../assets/DiscoverPage/CommuServers/Midjourney/MidjourneyProfilePic.jpg";
@@ -14,6 +15,9 @@ import InstagramIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourn
 import ServerPreImage from "../../../../assets/DiscoverPage/CommuServers/Midjourney/ServerPreImage.svg";
 
 const ServerPreview = () => {
+    const loaderServerData = useLoaderData();
+    console.log("Server: ", { loaderServerData });
+
     const joinReason = [
         {
             icon: ChatIcon,
@@ -47,7 +51,7 @@ const ServerPreview = () => {
             <header className="max-w-[1260px] w-full mt-[120px] px-10">
                 <img
                     className="w-full h-[400px] object-cover rounded-2xl"
-                    src={MidjourneyCoverPicLg}
+                    src={loaderServerData.coverImage}
                     alt=""
                 />
             </header>
@@ -55,7 +59,7 @@ const ServerPreview = () => {
                 <div className="w-full -mt-[52px] px-10">
                     <img
                         className="max-w-[104px] max-h-[104px] ml-12 border-[8px] border-white rounded-3xl"
-                        src={MidjourneyProfilePic}
+                        src={loaderServerData.icon}
                         alt=""
                     />
                 </div>
@@ -64,7 +68,7 @@ const ServerPreview = () => {
                         <div className="flex items-center">
                             <MdVerified className=" w-[27px] h-[27px] mr-2 mb-2 text-secondary-s3" />
                             <h1 className="mb-2 text-[34px] font-ggsans leading-10">
-                                Midjourney
+                                {loaderServerData.name}
                             </h1>
                         </div>
                         <p className="mb-6 text-xl font-ggsansNormal leading-7">
@@ -74,11 +78,11 @@ const ServerPreview = () => {
                         <div className="mb-6 flex items-center">
                             <span className="w-2 h-2 mr-2 bg-secondary-s3 rounded-full"></span>
                             <p className="mr-4 text-base font-semibold font-ggsansNormal leading-5">
-                                1,491,287 Online
+                                {loaderServerData.online} Online
                             </p>
                             <span className="w-2 h-2 mr-2 bg-[#c4c9ce] rounded-full"></span>
                             <p className="mr-4 text-base font-semibold font-ggsansNormal leading-5">
-                                19,444,378 Members
+                                {loaderServerData.members} Members
                             </p>
                         </div>
                         <div className="pt-[25px] pb-[25px] grid grid-cols-12 grid-rows-3 gap-x-5 border-t border-b border-[#06060714]">
@@ -130,21 +134,21 @@ const ServerPreview = () => {
                                 <h2 className="mb-2 text-xl font-ggsans leading-6">
                                     About
                                 </h2>
-                                <p className=" text-base font-ggsansNormal leading-5">
-                                    Midjourney is a new emerging text-to-image
-                                    AI that brings your imagination into
-                                    reality. Simply submit a text prompt and the
-                                    bot will generate a beautiful piece of art
-                                    in under 60 seconds.
-                                </p>
-                                <p className="mt-2 text-base font-ggsansNormal leading-5">
-                                    This community is ready and eager to help
-                                    you with anything Midjourney related.
-                                    Explore our resource channels,
-                                    prompt-crafting forum and support channels,
-                                    where our team of guides is ready to help
-                                    you around the server.
-                                </p>
+                                {loaderServerData.about.map(
+                                    (paragraph, index) => {
+                                        return (
+                                            <p
+                                                className={
+                                                    (index !== 0 && "mt-2 ") +
+                                                    "text-base font-ggsansNormal leading-5"
+                                                }
+                                                key={index}
+                                            >
+                                                {paragraph}
+                                            </p>
+                                        );
+                                    }
+                                )}
                             </div>
                             <div className="mt-6">
                                 <h2 className="mb-2 text-xl font-ggsans leading-6">
