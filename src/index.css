@@ -45,6 +45,7 @@
 }
 .slick-slide > div {
     margin: 0 10px;
+    margin-bottom: -7px;
 }
 
 @keyframes tooltip-popup {
@@ -67,4 +68,26 @@
 @keyframes fade-out {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+@keyframes fade-up-1 {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-up-2 {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }

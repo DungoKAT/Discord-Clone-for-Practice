@@ -62,6 +62,8 @@ export default {
             modal: "modal-popup 0.2s ease-in",
             fadeIn: "fade-in 0.3s ease-in",
             fadeOut: "fade-out 0.2s ease-in",
+            fadeUp1: "fade-up-1 1s ease-in-out",
+            fadeUp2: "fade-up-2 1.1s ease-in-out",
         },
         screens: {
             mobile479: "479px",
