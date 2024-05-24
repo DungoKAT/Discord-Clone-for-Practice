@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import LogoText from "../../../assets/Nav&Footer/logo-text.svg";
 import { BsInstagram, BsFacebook, BsYoutube } from "react-icons/bs";
 import { FaXTwitter, FaTiktok } from "react-icons/fa6";
+import DropdownArrow from "../../../assets/Nav&Footer/DropdownArrow.svg";
+import Launguages from "./Launguages";
 
 const MainFooter = () => {
-    // const countries = ["English", "English (UK)", "Thai", "Japan"];
+    const location = useLocation();
+    const [isDropdownShow, setIsDropdownShow] = useState(false);
+    const [languageSelected, setLanguageSelected] = useState(Launguages[3]);
 
     return (
         <footer className="flex w-full mt-auto mb-0 pt-20 pb-16 bg-primary-b4 max-mobile479:pb-10">
@@ -17,26 +22,61 @@ const MainFooter = () => {
                     "
                 >
                     <div
-                        className="h-[122px] col-span-4
+                        className="h-[122px] flex flex-col items-start col-span-4
                         max-mobile479:col-span-2
                         max-tablet767:col-span-1
                         max-tablet991:col-span-1"
                     >
-                        <select className=" bg-transparent w-1/2 my-6 text-sm text-white font-ggsansNormal">
-                            <option className=" p-2 text-sm text-black">
-                                English
-                            </option>
-                            <option className=" p-2 text-sm text-black">
-                                English (UK)
-                            </option>
-                            <option className=" p-2 text-sm text-black">
-                                Thai
-                            </option>
-                            <option className=" p-2 text-sm text-black">
-                                Japan
-                            </option>
-                        </select>
-                        <div className=" h-8 mt-6 flex text-white">
+                        <div className="relative max-w-[190px] w-full my-6">
+                            <button
+                                className="flex items-center font-ggsansNormal text-sm text-white text-start leading-[18px]"
+                                onClick={() => {
+                                    console.log(isDropdownShow);
+                                    setIsDropdownShow(!isDropdownShow);
+                                }}
+                            >
+                                <img
+                                    className="w-6 h-4 mr-2"
+                                    src={languageSelected.icon}
+                                    alt=""
+                                />
+                                {languageSelected.launguage}
+                                <img
+                                    className="pl-2"
+                                    src={DropdownArrow}
+                                    alt=""
+                                />
+                            </button>
+                            <div
+                                className={
+                                    (isDropdownShow ? "block" : "hidden") +
+                                    " absolute max-w-[320px] min-w-[150px] max-h-[320px] mb-2 bottom-full shadow-[0_1px_1px_rgb(0,0,0/10%)] bg-white rounded-lg overflow-x-hidden overflow-y-auto overscroll-contain"
+                                }
+                            >
+                                {Launguages.map((item, index) => {
+                                    return (
+                                        <div
+                                            className="p-2 flex items-center cursor-pointer"
+                                            key={index}
+                                            onClick={() => {
+                                                setLanguageSelected(item);
+                                                setIsDropdownShow(false);
+                                            }}
+                                        >
+                                            <img
+                                                className="w-6 h-4 mr-2"
+                                                src={item.icon}
+                                                alt=""
+                                            />
+                                            <p className="font-ggsansNormal text-sm text-primary-b4 leading-[18px]">
+                                                {item.launguage}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                        <div className="h-8 mt-6 flex text-white">
                             <a
                                 className="mr-6"
                                 href="https://twitter.com/discord"
@@ -88,19 +128,26 @@ const MainFooter = () => {
                             Product
                         </h3>
                         <ul className="text-white">
-                            <li className=" mt-2 hover:underline cursor-pointer">
-                                Download
-                            </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
-                                Nitro
-                            </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <Link
+                                to="/download"
+                                onClick={() => location.reload()}
+                            >
+                                <li className="mt-2 hover:underline cursor-pointer">
+                                    Download
+                                </li>
+                            </Link>
+                            <Link to="/nitro" onClick={() => location.reload()}>
+                                <li className="mt-2 hover:underline cursor-pointer">
+                                    Nitro
+                                </li>
+                            </Link>
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Status
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 App Directory
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 New Mobile Experience
                             </li>
                         </ul>
@@ -114,16 +161,21 @@ const MainFooter = () => {
                             Company
                         </h3>
                         <ul className="text-white">
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 About
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
-                                Jobs
-                            </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <Link
+                                to="/careers"
+                                onClick={() => location.reload()}
+                            >
+                                <li className="mt-2 hover:underline cursor-pointer">
+                                    Jobs
+                                </li>
+                            </Link>
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Brand
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Newsroom
                             </li>
                         </ul>
@@ -137,40 +189,45 @@ const MainFooter = () => {
                             Resources
                         </h3>
                         <ul className="text-white">
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 College
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Support
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
-                                Safety
-                            </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <Link
+                                to="/safety"
+                                onClick={() => location.reload()}
+                            >
+                                <li className="mt-2 hover:underline cursor-pointer">
+                                    Safety
+                                </li>
+                            </Link>
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Blog
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Feedback
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 StreamKit
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Creators
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Community
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Developers
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Gaming
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Quests
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Official 3rd Party Merch
                             </li>
                         </ul>
@@ -184,25 +241,25 @@ const MainFooter = () => {
                             Policies
                         </h3>
                         <ul className="text-white">
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Terms
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Privacy
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Cookie Settings
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Guidelines
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Acknowledgements
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Licenses
                             </li>
-                            <li className=" mt-2 hover:underline cursor-pointer">
+                            <li className="mt-2 hover:underline cursor-pointer">
                                 Company Information
                             </li>
                         </ul>
