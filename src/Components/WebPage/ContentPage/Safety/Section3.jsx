@@ -1,41 +1,43 @@
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ArrowButtonRight from "../../../../assets/SafetyPage/ArrowButtonRight.svg";
 import SafetySec2Pic7 from "../../../../assets/SafetyPage/SafetySec2Pic7.svg";
 
 const Section3 = ({ safetyCenter }) => {
     return (
-        <section className="w-full pt-[100px] pb-10 bg-primary-w5">
-            <div className="max-w-[980px] w-full h-full mb-[60px] mx-[470px] flex flex-col justify-between">
+        <section className="w-full pt-[100px] pb-10 bg-primary-w5 max-tablet767:pt-12 max-tablet991:pt-[60px] max-tablet991:pb-5">
+            <div
+                className="max-w-[980px] w-[90%] mb-[60px] mx-auto flex flex-col justify-center 
+                max-tablet767:mb-[60px] max-tablet991:mb-5"
+            >
                 {safetyCenter.map((item, index) => {
                     return (
                         <div key={index}>
-                            <Link
-                                to={"/safety-" + item.path}
-                                className="w-full grid grid-cols-[1fr,.94fr] gap-x-[54px]"
+                            <div
+                                className="w-full grid grid-cols-[1fr,.94fr] gap-[54px] cursor-pointer 
+                                max-tablet767:grid-cols-1
+                                max-tablet991:grid-cols-2 max-tablet991:gap-8"
                             >
-                                <img
-                                    className={
-                                        index % 2 === 1
-                                            ? "rounded-lg"
-                                            : "hidden"
-                                    }
-                                    src={item.image}
-                                    alt=""
-                                />
                                 <div className="w-full flex flex-col justify-center">
-                                    <h2 className="pb-5 text-5xl font-bold font-gintoNormal leading-[56px]">
+                                    <h2
+                                        className="text-5xl font-bold font-gintoNormal text-primary-b4 leading-[56px]
+                                        max-tablet767:text-[32px] 
+                                        max-tablet991:text-[42px] max-tablet991:leading-[120%]"
+                                    >
                                         {item.hub}
                                     </h2>
-                                    <p className="mb-5 text-base font-ggsansNormal">
+                                    <p
+                                        className="mt-5 mb-5 text-base font-ggsansNormal text-[#50555f] 
+                                        max-mobile479:mt-4
+                                        max-tablet991:mb-[10px]"
+                                    >
                                         {item.paragraph}
                                     </p>
-                                    <div className="mt-1 flex justify-start items-center">
+                                    <div className="mt-1 flex justify-start items-center max-tablet991:mt-[10px]">
                                         <p className="text-base font-bold font-ggsansNormal text-primary-b4">
                                             Explore more
                                         </p>
                                         <img
-                                            className=" ml-3"
+                                            className="ml-3"
                                             src={ArrowButtonRight}
                                             alt=""
                                         />
@@ -43,34 +45,39 @@ const Section3 = ({ safetyCenter }) => {
                                 </div>
                                 <img
                                     className={
-                                        index % 2 === 0
-                                            ? "rounded-lg"
-                                            : "hidden"
+                                        (index % 2 === 0
+                                            ? "order-last"
+                                            : "order-first") +
+                                        " w-full rounded-lg max-tablet767:order-first"
                                     }
                                     src={item.image}
                                     alt=""
                                 />
-                            </Link>
+                            </div>
                             <div className=" w-0 pb-[72px]"></div>
                         </div>
                     );
                 })}
-
-                <Link
-                    to="/safety-teen-charter"
-                    className="w-full grid grid-cols-[1fr,.94fr] gap-x-[54px]"
-                >
+                <div className="w-full grid grid-cols-[1fr,.94fr] gap-[54px] cursor-pointer max-tablet767:grid-cols-1 max-tablet991:grid-cols-2 max-tablet991:gap-x-8">
                     <div className="w-full flex flex-col justify-center">
-                        <h2 className="pb-5 text-5xl font-bold font-gintoNormal text-primary-b4 leading-[56px]">
+                        <h2
+                            className="pb-5 text-5xl font-bold font-gintoNormal text-primary-b4 leading-[56px]
+                            max-tablet767:text-[32px] 
+                            max-tablet991:text-[42px] max-tablet991:leading-[120%]"
+                        >
                             Teen Charter
                         </h2>
-                        <p className="mb-5 text-base font-ggsansNormal text-[#50555f]">
+                        <p
+                            className="mb-5 text-base font-ggsansNormal text-[#50555f]
+                            max-mobile479:mt-4
+                            max-tablet991:mb-[10px]"
+                        >
                             We work to center youth voices in our product design
                             and policies. Now we&apos;re collaborating with
                             teens around the world on a charter to make Discord
                             a better place to hang out.
                         </p>
-                        <div className="mt-1 flex justify-start items-center">
+                        <div className="mt-1 flex justify-start items-center max-tablet991:mt-[10px]">
                             <p className="text-base font-bold font-ggsansNormal text-primary-b4">
                                 Explore more
                             </p>
@@ -82,11 +89,11 @@ const Section3 = ({ safetyCenter }) => {
                         </div>
                     </div>
                     <img
-                        className="max-w-none w-[112%] rounded-lg"
+                        className="max-w-none w-[112%] rounded-lg max-tablet767:order-first max-tablet991:w-full"
                         src={SafetySec2Pic7}
                         alt=""
                     />
-                </Link>
+                </div>
             </div>
         </section>
     );

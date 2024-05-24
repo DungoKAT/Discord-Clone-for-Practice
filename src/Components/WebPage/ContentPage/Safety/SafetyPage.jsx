@@ -61,9 +61,13 @@ const SafetyPage = () => {
     return (
         <div className="w-full">
             <Header safetyCenter={safetyCenter} />
-            <section className="w-full py-[95px]">
-                <div className="relative max-w-[780px] mb-0 mx-auto">
-                    <h1 className=" text-5xl font-bold font-gintoNormal text-primary-b4 text-center leading-[58px]">
+            <section className="w-full py-[95px] max-tablet991:py-[60px]">
+                <div className="relative max-w-[780px] w-[90%] mb-0 mx-auto">
+                    <h1
+                        className=" text-5xl font-bold font-gintoNormal text-primary-b4 text-center leading-[58px]
+                        max-tablet767:text-[32px] max-tablet767:leading-[42px]
+                        max-tablet991:text-[42px] max-tablet991:leading-[52px]"
+                    >
                         Building Safer Spaces
                     </h1>
                     <div className="w-full h-[404px] mt-10 bg-black rounded-lg"></div>
