@@ -3,14 +3,8 @@ import PropTypes from "prop-types";
 import WhiteSection from "./WhiteSection";
 import VerifiedIconComponent from "./VerifiedIconComponent";
 import PartneredIconComponent from "./PartneredIconComponent";
-// import JoinReasonEmojiIcons from "./JoinReasonEmojiIcons";
 import SocialIcons from "./SocialIcons";
 import ChatIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/ChatIcon.svg";
-// import CalendarIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/CalendarIcon.svg";
-// import RobotIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/RobotIcon.svg";
-// import HumanIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/HumanIcon.svg";
-// import ColorPaletteIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/ColorPaletteIcon.svg";
-// import MagnifyingGlassIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/MagnifyingGlassIcon.svg";
 const ServerPreview = () => {
     const loaderServerData = useLoaderData();
     const location = useLocation();
