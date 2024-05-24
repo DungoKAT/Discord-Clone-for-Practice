@@ -68,7 +68,7 @@ const PerkGroup2 = ({ perk }) => {
 };
 
 PerkGroup2.propTypes = {
-    perk: PropTypes.object.isRequired,
+    perk: PropTypes.array.isRequired,
 };
 
 export default PerkGroup2;

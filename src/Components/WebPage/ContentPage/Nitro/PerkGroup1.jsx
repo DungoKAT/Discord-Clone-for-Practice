@@ -4,7 +4,7 @@ const PerkGroup1 = ({ perk }) => {
     return (
         <div
             className="max-w-[1180px] w-full mt-[60px] grid grid-rows-2 grid-cols-2 gap-5
-    max-tablet991:grid-cols-1 max-tablet991:mt-[30px]"
+            max-tablet991:grid-cols-1 max-tablet991:mt-[30px]"
         >
             {perk.map((perk1, index) => {
                 return (
@@ -32,7 +32,7 @@ const PerkGroup1 = ({ perk }) => {
 };
 
 PerkGroup1.propTypes = {
-    perk: PropTypes.object.isRequired,
+    perk: PropTypes.array.isRequired,
 };
 
 export default PerkGroup1;
