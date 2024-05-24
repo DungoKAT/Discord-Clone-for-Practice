@@ -20,14 +20,14 @@ const Header = () => {
                     max-tablet991:min-w-[360px] max-tablet991:mx-auto max-tablet991:mb-10 max-tablet991:self-start"
                 >
                     <h1
-                        className="mb-6 text-[50px] font-extrabold text-white font-gintoNord leading-none
+                        className="mb-6 text-[50px] font-extrabold text-white font-gintoNord leading-none animate-fadeUp1
                         max-mobile479:text-[32px]
                         max-tablet767:text-[36px]"
                     >
                         GET DISCORD FOR ANY DEVICE
                     </h1>
                     <p
-                        className="mb-5 text-xl text-white font-ggsansNormal 
+                        className="mb-5 text-xl text-white font-ggsansNormal animate-fadeUp2
                         max-mobile479:text-[16px] max-mobile479:leading-6
                         max-desktop1440:text-[20px] max-desktop1440:leading-[30px]"
                     >
@@ -51,7 +51,7 @@ const Header = () => {
                             </p>
                         </button>
                         <span
-                            className="text-base text-white font-ggsansNormal
+                            className="text-base text-white font-ggsansNormal animate-fadeUp2
                             max-mobile479:mt-[10px] 
                             max-tablet991:ml-0"
                         >
@@ -61,7 +61,7 @@ const Header = () => {
                 </div>
                 <div className="self-center">
                     <img
-                        className="w-full max-tablet767:min-w-0 max-tablet991:min-w-[600px]"
+                        className="w-full animate-fadeUp1 max-tablet767:min-w-0 max-tablet991:min-w-[600px]"
                         src={HeroPic}
                         alt=""
                     />
