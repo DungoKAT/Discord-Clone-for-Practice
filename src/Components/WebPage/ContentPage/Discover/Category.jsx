@@ -3,24 +3,27 @@ import PropTypes from "prop-types";
 import ServerCategory from "./ServerCategory";
 import ArrowDownIcon from "../../../../assets/DiscoverPage/CommuCategory/ArrowDownIcon.svg";
 
-const Category = ({ category, categorySelected, setCategorySelected }) => {
+const Category = ({ category, categorySelected, inputSearchParams }) => {
     const [isCategoriesModalOpen, setIsCategoriesModalOpen] = useState(false);
 
     return (
         <div className="col-start-2 col-span-3 max-tablet991:mb-[30px] max-tablet991:col-start-1 max-tablet991:col-span-full">
             <div className="w-full max-tablet991:hidden">
                 {category.map((item, index) => {
-                    return (
-                        <ServerCategory
-                            icon={item.icon}
-                            categoryName={item.categoryName}
-                            quantity={item.quantity}
-                            categorySelected={categorySelected}
-                            setCategorySelected={setCategorySelected}
-                            index={index}
-                            key={index}
-                        />
-                    );
+                    if (index === 0 || item.quantity > 0) {
+                        return (
+                            <ServerCategory
+                                icon={item.icon}
+                                categoryName={item.categoryName}
+                                quantity={item.quantity}
+                                pathname={item.pathname}
+                                categorySelected={categorySelected}
+                                inputSearchParams={inputSearchParams}
+                                index={index}
+                                key={index}
+                            />
+                        );
+                    }
                 })}
             </div>
             <div className="hidden max-tablet991:flex">
@@ -48,17 +51,20 @@ const Category = ({ category, categorySelected, setCategorySelected }) => {
                         }
                     >
                         {category.map((item, index) => {
-                            return (
-                                <ServerCategory
-                                    icon={item.icon}
-                                    categoryName={item.categoryName}
-                                    quantity={item.quantity}
-                                    categorySelected={categorySelected}
-                                    setCategorySelected={setCategorySelected}
-                                    index={index}
-                                    key={index}
-                                />
-                            );
+                            if (index === 0 || item.quantity > 0) {
+                                return (
+                                    <ServerCategory
+                                        icon={item.icon}
+                                        categoryName={item.categoryName}
+                                        quantity={item.quantity}
+                                        pathname={item.pathname}
+                                        categorySelected={categorySelected}
+                                        inputSearchParams={inputSearchParams}
+                                        index={index}
+                                        key={index}
+                                    />
+                                );
+                            }
                         })}
                     </div>
                 </button>
@@ -70,7 +76,7 @@ const Category = ({ category, categorySelected, setCategorySelected }) => {
 Category.propTypes = {
     category: PropTypes.array.isRequired,
     categorySelected: PropTypes.object.isRequired,
-    setCategorySelected: PropTypes.func.isRequired,
+    inputSearchParams: PropTypes.string.isRequired,
 };
 
 export default Category;

@@ -1,7 +1,23 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
+import { useSearchParams } from "react-router-dom";
 import SearchIcon from "../../../../assets/DiscoverPage/SearchIcon.png";
+import { BiX } from "react-icons/bi";
 
-const SearchBar = () => {
+const SearchBar = ({ setInputSearchParams }) => {
+    const [searchParams, setSearchParams] = useSearchParams({ query: "" });
+    const [inputValue, setInputValue] = useState("");
+    const searchServer = () => {
+        setInputSearchParams(inputValue);
+        searchParams.has("offset") && searchParams.delete("offset");
+        setSearchParams(
+            (prev) => {
+                prev.set("query", inputValue);
+                return prev;
+            },
+            { replace: true }
+        );
+    };
     const [isFocusInput, setIsFocusInput] = useState(false);
 
     return (
@@ -24,17 +40,58 @@ const SearchBar = () => {
                             type="text"
                             placeholder="Explore communities"
                             maxLength={100}
+                            value={inputValue}
                             onFocus={() => setIsFocusInput(true)}
                             onBlur={() => setIsFocusInput(false)}
+                            onInput={(e) => setInputValue(e.target.value)}
+                            onKeyDown={(e) => {
+                                (inputValue !== "" ||
+                                    inputValue === searchParams.get("query")) &&
+                                    e.key === "Enter" &&
+                                    searchServer();
+                            }}
                         />
                     </div>
+                    {inputValue.length >= 2 && isFocusInput && (
+                        <div className="mr-2 font-ggsansNormal text-xs">
+                            &quot;ENTER&quot; to Search
+                        </div>
+                    )}
+                    <button
+                        className={
+                            (inputValue === "" ? "hidden" : "block") +
+                            " w-[22px] h-[22px] text-xl text-[#ebebeb] bg-primary-w1 rounded-full cursor-default"
+                        }
+                        onClick={() => {
+                            setInputValue("");
+                            setInputSearchParams("");
+                            searchParams.has("query") &&
+                                searchParams.delete("query");
+                            searchParams.has("offset") &&
+                                searchParams.delete("offset");
+                            setSearchParams(searchParams);
+                        }}
+                    >
+                        <BiX className="mx-auto" />
+                    </button>
                 </div>
-                <button className="w-[52px] h-full items-center bg-secondary-s1 rounded-lg hover:bg-secondary-s1Hover transition-colors max-tablet991:w-10">
+                <button
+                    className="w-[52px] h-full items-center bg-secondary-s1 rounded-lg cursor-pointer hover:bg-secondary-s1Hover transition-colors max-tablet991:w-10"
+                    onClick={searchServer}
+                    disabled={
+                        inputValue === "" ||
+                        inputValue === searchParams.get("query")
+                    }
+                >
                     <img className="w-5 mx-auto" src={SearchIcon} alt="" />
                 </button>
             </div>
         </div>
     );
+};
+
+SearchBar.propTypes = {
+    setInputSearchParams: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
