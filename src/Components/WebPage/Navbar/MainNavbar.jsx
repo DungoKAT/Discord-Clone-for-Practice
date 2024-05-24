@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useRouteError } from "react-router-dom";
 import LogoText from "../../../assets/Nav&Footer/logo-text.svg";
 import ToggleBar from "../../../assets/ToggleBar.svg";
 import CrossIcon from "../../../assets/CrossIcon.svg";
 import DownloadIcon from "../../../assets/DownloadIcon.svg";
 
 const MainNavbar = () => {
+    const location = useLocation();
+    const error = useRouteError();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isTop, setIsTop] = useState(true);
 
     useEffect(() => {
         const webpage = document.getElementById("web-page");
-
         webpage.onscroll = () => {
             webpage.scrollTop === 0 ? setIsTop(true) : setIsTop(false);
         };
-
         return () => (window.onscroll = null);
     }, [isTop]);
 
@@ -29,9 +29,10 @@ const MainNavbar = () => {
             }
         >
             <div className="relative maxWidth1180 min-h-[80px] h-20 flex justify-between items-center">
-                <Link to="/">
+                <Link to="/" onClick={() => location.reload()}>
                     <img
                         className={
+                            (error && "invert ") +
                             (isSidebarOpen
                                 ? "opacity-0 pointer-events-none"
                                 : "opacity-1 pointer-events-auto") +
@@ -41,58 +42,78 @@ const MainNavbar = () => {
                         alt=""
                     />
                 </Link>
-                <ul className="flex max-tablet991:hidden">
+                <ul
+                    className={
+                        (error ? "text-black" : "text-white") +
+                        " flex max-tablet991:hidden"
+                    }
+                >
                     <Link
                         to="/download"
-                        className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer"
+                        onClick={() => location.reload()}
+                        className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer"
                     >
                         Download
                     </Link>
                     <Link
                         to="/nitro"
-                        className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer"
+                        onClick={() => location.reload()}
+                        className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer"
                     >
                         Nitro
                     </Link>
                     <Link
                         to="/servers"
-                        className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer"
+                        onClick={() => location.reload()}
+                        className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer"
                     >
                         Discover
                     </Link>
                     <Link
                         to="/safety"
-                        className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer"
+                        onClick={() => location.reload()}
+                        className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer"
                     >
                         Safety
                     </Link>
-                    <li className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer">
+                    <li className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer">
                         Support
                     </li>
-                    <li className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer">
+                    <li className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer">
                         Blog
                     </li>
                     <Link
                         to="/careers"
-                        className=" font-ggsans mx-[10px] text-font-f1 p-[10px] hover:underline cursor-pointer"
+                        onClick={() => location.reload()}
+                        className=" font-ggsans mx-[10px] p-[10px] hover:underline cursor-pointer"
                     >
                         Careers
                     </Link>
                 </ul>
                 <Link
                     to="/app"
-                    className="min-w-[115.11px] ml-auto flex tablet991:ml-0 px-4 py-2 text-sm bg-white rounded-full leading-[22px]
-                    hover:text-secondary-s1 hover:shadow-[0_15px_15px_0px_rgba(0,0,0,0.25)] transition"
+                    onClick={() => location.reload()}
+                    className={
+                        (error
+                            ? "text-white bg-secondary-s1 hover:bg-[#7983f5]"
+                            : "bg-white hover:text-secondary-s1") +
+                        " min-w-[115.11px] ml-auto flex tablet991:ml-0 px-4 py-2 text-sm rounded-full leading-[22px] hover:shadow-[0_15px_15px_0px_rgba(0,0,0,0.25)] transition"
+                    }
                 >
                     Open Discord
                 </Link>
                 <button
-                    className="relative hidden -mr-10 p-[18px] top-0 bottom-auto left-auto right-0  
-                    max-tablet767:-mr-5 
-                    max-tablet991:block"
+                    className={
+                        (error && "invert ") +
+                        "relative hidden min-w-[40px] -mr-10 p-[18px] top-0 bottom-auto left-auto right-0 max-tablet767:-mr-5 max-tablet991:block"
+                    }
                     onClick={() => setIsSidebarOpen(true)}
                 >
-                    <img src={ToggleBar} alt="" />
+                    <img
+                        className="min-w-[40px] min-h-[40px]"
+                        src={ToggleBar}
+                        alt=""
+                    />
                 </button>
             </div>
             <div
@@ -107,24 +128,28 @@ const MainNavbar = () => {
                 <ul className="flex flex-col">
                     <Link
                         to="/download"
+                        onClick={() => location.reload()}
                         className="py-2 px-4 flex justify-start font-ggsans text-primary-b4 hover:underline cursor-pointer"
                     >
                         Download
                     </Link>
                     <Link
                         to="/nitro"
+                        onClick={() => location.reload()}
                         className="py-2 px-4 flex justify-start font-ggsans text-primary-b4 hover:underline cursor-pointer"
                     >
                         Nitro
                     </Link>
                     <Link
                         to="/servers"
+                        onClick={() => location.reload()}
                         className="py-2 px-4 flex justify-start font-ggsans text-primary-b4 hover:underline cursor-pointer"
                     >
                         Discover
                     </Link>
                     <Link
                         to="/safety"
+                        onClick={() => location.reload()}
                         className="py-2 px-4 flex justify-start font-ggsans text-primary-b4 hover:underline cursor-pointer"
                     >
                         Safety
@@ -137,6 +162,7 @@ const MainNavbar = () => {
                     </li>
                     <Link
                         to="/careers"
+                        onClick={() => location.reload()}
                         className="py-2 px-4 flex justify-start font-ggsans text-primary-b4 hover:underline cursor-pointer"
                     >
                         Careers
