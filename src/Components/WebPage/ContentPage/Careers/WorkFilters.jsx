@@ -10,8 +10,13 @@ const workFilters = {
         departmentName: "Activities Platform",
         careers: [
             {
+                careerName: "Partner Producer",
+                address: "San Francisco, CA or Remote (U.S.)",
+                icon: Icon1,
+            },
+            {
                 careerName: "Studio Games  Product Manager",
-                address: "Remote or San Francisco, CA",
+                address: "San Francisco, CA or Remote (U.S.)",
                 icon: Icon1,
             },
         ],
@@ -30,7 +35,13 @@ const workFilters = {
         departmentName: "Consumer Marketing",
         careers: [
             {
-                careerName: "Director, Developer Marketing",
+                careerName: "Senior CRM Manager",
+                address: "San Francisco, CA or Remote (U.S.)",
+                icon: Icon1,
+            },
+            {
+                careerName:
+                    "Senior Product Marketing Manager, Marketing Solutions",
                 address: "San Francisco, CA or Remote (U.S.)",
                 icon: Icon1,
             },
@@ -41,17 +52,17 @@ const workFilters = {
         careers: [
             {
                 careerName: "Senior Software Engineer - API Platform",
-                address: "San Francisco, CA (or Remote)",
+                address: "San Francisco, CA or Remote (U.S.)",
                 icon: Icon1,
             },
             {
-                careerName: "Senior Software Engineer - Client Platforms",
-                address: "San Francisco, CA or Remote",
+                careerName: "Senior Software Engineer - AV Infrastructure",
+                address: "San Francisco, CA or Remote (U.S.)",
                 icon: Icon1,
             },
             {
                 careerName: "Senior Software Engineer - Leverage Engineering",
-                address: "San Francisco, CA or Remote",
+                address: "San Francisco, CA or Remote (U.S.)",
                 icon: Icon1,
             },
             {

@@ -78,7 +78,10 @@ const ElementSlider = () => {
     };
 
     return (
-        <div className="relative max-w-[900px] w-full min-h-[400px] h-full mt-[60px] mb-20 mx-auto bg-white rounded-[14px] shadow-[2px_2px_4px_rgba(0,0,0,.07)]">
+        <div
+            className="relative max-w-[900px] w-full min-h-[400px] h-full mt-[60px] mb-20 mx-auto bg-white rounded-[14px] shadow-[2px_2px_4px_rgba(0,0,0,.07)]
+            max-mobile479:min-h-0 max-tablet767:mb-[60px] max-tablet991:h-auto"
+        >
             <Slider
                 ref={(slider) => {
                     sliderRef = slider;
@@ -88,12 +91,14 @@ const ElementSlider = () => {
                 {sliderData.map((item, index) => {
                     return (
                         <div
-                            className="relative w-full h-[400px] py-[37px] pl-10 pr-[70px] overflow-hidden"
+                            className="relative w-full h-[400px] py-[37px] pl-10 pr-[70px] overflow-hidden
+                            max-mobile479:pb-[90px] max-mobile479:px-8 max-tablet767:pr-[30px] max-tablet991:h-auto max-tablet991:pr-10"
                             key={index}
                         >
-                            <div className="w-full flex items-center">
+                            <div className="w-full flex items-center max-mobile479:flex-col max-mobile479:justify-center max-tablet991:flex-col max-tablet991:items-start">
                                 <img
-                                    className="max-w-[200px] w-full mr-10 rounded-md"
+                                    className="max-w-[200px] w-full mr-10 rounded-md max-mobile479:max-w-[45%] 
+                                    max-tablet767:max-w-[30%] max-tablet767:mb-5 max-tablet767:mr-[10px]"
                                     src={item.image}
                                     alt=""
                                 />
@@ -101,7 +106,7 @@ const ElementSlider = () => {
                                     <h5 className="my-[10px] text-xl font-semibold font-ggsans text-[#060a0b] leading-[26px]">
                                         {item.topic}
                                     </h5>
-                                    <p className="my-5 text-base font-ggsansNormal text-[#2c2f33] leading-6">
+                                    <p className="my-5 text-base font-ggsansNormal text-[#2c2f33] leading-6 max-mobile479:mt-[10px]">
                                         {item.paragraph}
                                     </p>
                                 </div>
@@ -111,13 +116,15 @@ const ElementSlider = () => {
                 })}
             </Slider>
             <button
-                className="absolute w-[50px] h-[50px] top-0 bottom-0 left-0 right-auto -ml-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full"
+                className="absolute w-[50px] h-[50px] top-0 bottom-0 left-0 right-auto -ml-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full
+                max-mobile479:top-auto max-mobile479:bottom-5 max-mobile479:left-[50px] max-mobile479:right-auto"
                 onClick={previous}
             >
                 <img className="w-[22px]" src={ArrowLeft1} alt="" />
             </button>
             <button
-                className="absolute w-[50px] h-[50px] top-0 bottom-0 left-auto right-0 -mr-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full"
+                className="absolute w-[50px] h-[50px] top-0 bottom-0 left-auto right-0 -mr-[25px] my-auto flex justify-center items-center bg-[#efefef] border-[2px] border-[#d9d9d9] rounded-full
+                max-mobile479:top-auto max-mobile479:bottom-5 max-mobile479:left-auto max-mobile479:right-[50px]"
                 onClick={next}
             >
                 <img className="w-[22px]" src={ArrowRight1} alt="" />

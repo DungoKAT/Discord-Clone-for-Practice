@@ -13,10 +13,13 @@ const CareersItems = ({ workFilters }) => {
                             data-department-name={departmentName}
                             key={index}
                         >
-                            <h3 className="mt-20 mb-6 text-[32px] font-extrabold font-gintoNord text-primary-b4 leading-none">
+                            <h3
+                                className="mt-20 mb-6 text-[32px] font-extrabold font-gintoNord text-primary-b4 leading-none
+                                max-mobile479:text-[18px] max-mobile479:leading-[22px] max-tablet767:text-[24px] max-tablet767:mt-[50px] max-tablet991:mt-[60px]"
+                            >
                                 {departmentName}
                             </h3>
-                            <div className="w-full grid grid-cols-3 gap-4">
+                            <div className="w-full grid grid-cols-3 gap-4 max-mobile479:grid-cols-1 max-tablet991:grid-cols-2">
                                 {careersItems.map((item, index) => {
                                     return (
                                         <div
