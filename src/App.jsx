@@ -7,12 +7,13 @@ import HomePage from "./Components/WebPage/ContentPage/Home/HomePage.jsx";
 import DownloadPage from "./Components/WebPage/ContentPage/Download/DownloadPage.jsx";
 import NitroPage from "./Components/WebPage/ContentPage/Nitro/NitroPage.jsx";
 import DiscoverPage from "./Components/WebPage/ContentPage/Discover/DiscoverPage.jsx";
+import CommuServer from "./Components/WebPage/ContentPage/Discover/CommuServer.jsx";
+import ServerPreview from "./Components/WebPage/ContentPage/Discover/ServerPreview.jsx";
 import SafetyPage from "./Components/WebPage/ContentPage/Safety/SafetyPage.jsx";
 import SafetyLibraryPage from "./Components/WebPage/ContentPage/Safety/HubPage/SafetyLibrary.jsx";
 import SafetyPrivacyPage from "./Components/WebPage/ContentPage/Safety/HubPage/SafetyPrivacy.jsx";
 import CareersPage from "./Components/WebPage/ContentPage/Careers/CareersPage.jsx";
 import AppPage from "./Components/AppPage/AppPage.jsx";
-import ServerPreview from "./Components/WebPage/ContentPage/Discover/ServerPreview.jsx";
 // import SideNavbar from "./Components/SideNavbar/SideNavbar";
 // import Content from "./Components/Content/Content";
 
@@ -32,11 +33,12 @@ function App() {
     // }, []);
     // console.log("Data: ", data);
 
-    const loader = async ({ params }) => {
+    const baseURL =
+        "https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers";
+
+    const loaderServerPath = async ({ params }) => {
         console.log("Params: ", params);
-        const res = await fetch(
-            `https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers/${params.serverPathName}`
-        );
+        const res = await fetch(`${baseURL}/${params.serverPathName}`);
         console.log("Response: ", res);
         if (res.status === 404) {
             throw new Response("Not Found", { status: 404 });
@@ -48,6 +50,7 @@ function App() {
         {
             path: "/",
             element: <WebPage />,
+            errorElement: <WebPage />,
             children: [
                 {
                     path: "/",
@@ -64,14 +67,81 @@ function App() {
                 {
                     path: "/servers",
                     element: <DiscoverPage />,
+                    async loader({ params, request }) {
+                        const url = new URL(request.url);
+                        // console.log(params);
+                        return await fetch(`${baseURL}${url.search}`).then(
+                            (response) => response.json()
+                        );
+                    },
+                    children: [
+                        {
+                            path: "/servers",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                        {
+                            path: "/servers/gaming",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}/gaming${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                        {
+                            path: "/servers/entertainment",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}/entertainment${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                        {
+                            path: "/servers/education",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}/education${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                        {
+                            path: "/servers/science&tech",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}/science&tech${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                        {
+                            path: "/servers/music",
+                            element: <CommuServer />,
+                            async loader({ params, request }) {
+                                const url = new URL(request.url);
+                                return await fetch(
+                                    `${baseURL}/music${url.search}`
+                                ).then((response) => response.json());
+                            },
+                        },
+                    ],
                 },
                 {
                     path: "/servers/:serverPathName",
                     element: <ServerPreview />,
                     loader({ params }) {
-                        console.log("Param: ", params);
-                        // console.log("Request: ", { request });
-                        return loader({ params });
+                        return loaderServerPath({ params });
                     },
                 },
                 {
