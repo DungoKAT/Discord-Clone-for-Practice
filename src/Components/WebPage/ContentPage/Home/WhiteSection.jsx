@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-const WhiteSection = ({ image, topic, paragraph }) => {
+const WhiteSection = ({ id, image, topic, paragraph }) => {
     return (
         <section
             className="max-tablet991:pt-[60px]  
             pt-[120px] pb-[130px]"
         >
-            <div className="maxWidth1180">
+            <div className="maxWidth1180" id={id}>
                 <div
                     className="max-mobile479:gap-y-5
                     max-tablet991:flex max-tablet991:flex-col max-tablet991:justify-center
@@ -37,6 +37,7 @@ const WhiteSection = ({ image, topic, paragraph }) => {
 };
 
 WhiteSection.propTypes = {
+    id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     topic: PropTypes.string.isRequired,
     paragraph: PropTypes.string.isRequired,

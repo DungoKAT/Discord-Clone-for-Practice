@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 // Components
 import Header from "./Header";
 import WhiteSection from "./WhiteSection";
@@ -10,10 +11,61 @@ import Twinklink from "../../../../assets/HomePage/Twinklink.svg";
 import DownloadIcon2 from "../../../../assets/DownloadIcon2.svg";
 
 const HomePage = () => {
+    useEffect(() => {
+        const webpage = document.getElementById("web-page");
+        const section1 = document.getElementById("section-1");
+        const section2 = document.getElementById("section-2");
+        const section3 = document.getElementById("section-3");
+        const section4 = document.getElementById("section-4");
+
+        const section1OffsetBottom = section1.offsetTop + section1.offsetHeight;
+        const section2OffsetBottom = section2.offsetTop + section2.offsetHeight;
+        const section3OffsetBottom = section3.offsetTop + section3.offsetHeight;
+        const section4OffsetBottom = section4.offsetTop + section4.offsetHeight;
+        if (
+            webpage.offsetHeight + webpage.scrollTop >= section1.offsetTop &&
+            webpage.scrollTop <= section1OffsetBottom
+        ) {
+            section1.style.animation = "fade-up-1 1s ease-in-out";
+        }
+
+        webpage.onscroll = () => {
+            const webpageScrollBottom =
+                webpage.offsetHeight + webpage.scrollTop;
+            if (
+                webpageScrollBottom >= section1.offsetTop &&
+                webpage.scrollTop <= section1OffsetBottom
+            ) {
+                section1.style.animation = "fade-up-1 1s ease-in-out";
+            }
+            if (
+                webpageScrollBottom >= section2.offsetTop &&
+                webpage.scrollTop <= section2OffsetBottom
+            ) {
+                section2.style.animation = "fade-up-1 1s ease-in-out";
+            }
+            if (
+                webpageScrollBottom >= section3.offsetTop &&
+                webpage.scrollTop <= section3OffsetBottom
+            ) {
+                section3.style.animation = "fade-up-1 1s ease-in-out";
+            }
+            if (
+                webpageScrollBottom >= section4.offsetTop &&
+                webpage.scrollTop <= section4OffsetBottom
+            ) {
+                section4.style.animation = "fade-up-1 1s ease-in-out";
+            }
+        };
+
+        return () => (window.onscroll = null);
+    }, []);
+
     return (
         <div className="w-full h-auto flex flex-col">
             <Header />
             <WhiteSection
+                id="section-1"
                 image={ContentPic1}
                 topic="Create an invite-only place where you belong"
                 paragraph="
@@ -27,7 +79,7 @@ const HomePage = () => {
                 className="max-tablet991:pt-[60px]  
                 pt-[120px] pb-[130px] bg-primary-w5"
             >
-                <div className="maxWidth1180">
+                <div className="maxWidth1180" id="section-2">
                     <div
                         className="max-mobile479:gap-y-5
                         max-tablet991:flex max-tablet991:flex-col max-tablet991:justify-center
@@ -67,6 +119,7 @@ const HomePage = () => {
                 </div>
             </section>
             <WhiteSection
+                id="section-3"
                 image={ContentPic3}
                 topic="From few to a fandom"
                 paragraph="
@@ -79,7 +132,7 @@ const HomePage = () => {
                 className="max-tablet991:pt-[60px] max-tablet991:pb-[60px] 
                 pt-[120px] pb-[130px] bg-primary-w5"
             >
-                <div className="maxWidth1180">
+                <div className="maxWidth1180" id="section-4">
                     <div className="max-w-[1000px] mx-auto flex flex-col text-primary-b4">
                         <h3
                             className="mb-6 font-extrabold font-gintoNord text-center leading-none
