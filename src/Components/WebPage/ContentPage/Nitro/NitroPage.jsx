@@ -93,8 +93,8 @@ const NitroPage = () => {
                     >
                         Popular Nitro Perks
                     </h2>
-                    <PerkGroup1 perk={Perks[0].perkGroup1} />
-                    <PerkGroup2 perk={Perks[0].perkGroup2} />
+                    <PerkGroup1 perk={Perks.perkGroup1} />
+                    <PerkGroup2 perk={Perks.perkGroup2} />
                     <div
                         className="max-w-[1180px] w-full mt-[100px] mb-[120px] mx-auto pt-[70px] pb-[100px] pl-[100px] pr-[80px] bg-primary-w5 rounded-lg
                         max-mobile479:w-[calc(100%+32px)] max-mobile479:my-[50px] max-mobile479:-mx-4 max-mobile479:pb-[60px]
