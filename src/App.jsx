@@ -33,8 +33,7 @@ function App() {
     // }, []);
     // console.log("Data: ", data);
 
-    const baseURL =
-        "https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers";
+    const baseURL = "https://node-servers-api-vercel.vercel.app/servers";
 
     const loaderServerPath = async ({ params }) => {
         console.log("Params: ", params);
