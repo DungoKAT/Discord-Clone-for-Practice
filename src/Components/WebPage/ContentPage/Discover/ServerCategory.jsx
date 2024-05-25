@@ -10,8 +10,6 @@ const ServerCategory = ({
     inputSearchParams,
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
-    console.log("Category Selected: ", categorySelected.categoryName);
-    // console.log("Category: ", categoryName);
     return (
         <div className="cursor-pointer">
             <Link
