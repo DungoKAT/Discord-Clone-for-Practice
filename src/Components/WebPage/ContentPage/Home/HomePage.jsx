@@ -18,44 +18,31 @@ const HomePage = () => {
         const section3 = document.getElementById("section-3");
         const section4 = document.getElementById("section-4");
 
-        const section1OffsetBottom = section1.offsetTop + section1.offsetHeight;
-        const section2OffsetBottom = section2.offsetTop + section2.offsetHeight;
-        const section3OffsetBottom = section3.offsetTop + section3.offsetHeight;
-        const section4OffsetBottom = section4.offsetTop + section4.offsetHeight;
-        if (
-            webpage.offsetHeight + webpage.scrollTop >= section1.offsetTop &&
-            webpage.scrollTop <= section1OffsetBottom
-        ) {
-            section1.style.animation = "fade-up-1 1s ease-in-out";
-        }
+        const playFadeUp = (webpageScrollBottom, section) => {
+            const sectionOffsetBottom =
+                section.offsetTop + section.offsetHeight;
+            if (
+                webpageScrollBottom >= section.offsetTop &&
+                webpage.scrollTop <= sectionOffsetBottom
+            ) {
+                section.style.animation = "fade-up-1 1s ease-in-out";
+            }
+        };
+
+        const webpageScrollBottomRender =
+            webpage.offsetHeight + webpage.scrollTop;
+        playFadeUp(webpageScrollBottomRender, section1);
+        playFadeUp(webpageScrollBottomRender, section2);
+        playFadeUp(webpageScrollBottomRender, section3);
+        playFadeUp(webpageScrollBottomRender, section4);
 
         webpage.onscroll = () => {
             const webpageScrollBottom =
                 webpage.offsetHeight + webpage.scrollTop;
-            if (
-                webpageScrollBottom >= section1.offsetTop &&
-                webpage.scrollTop <= section1OffsetBottom
-            ) {
-                section1.style.animation = "fade-up-1 1s ease-in-out";
-            }
-            if (
-                webpageScrollBottom >= section2.offsetTop &&
-                webpage.scrollTop <= section2OffsetBottom
-            ) {
-                section2.style.animation = "fade-up-1 1s ease-in-out";
-            }
-            if (
-                webpageScrollBottom >= section3.offsetTop &&
-                webpage.scrollTop <= section3OffsetBottom
-            ) {
-                section3.style.animation = "fade-up-1 1s ease-in-out";
-            }
-            if (
-                webpageScrollBottom >= section4.offsetTop &&
-                webpage.scrollTop <= section4OffsetBottom
-            ) {
-                section4.style.animation = "fade-up-1 1s ease-in-out";
-            }
+            playFadeUp(webpageScrollBottom, section1);
+            playFadeUp(webpageScrollBottom, section2);
+            playFadeUp(webpageScrollBottom, section3);
+            playFadeUp(webpageScrollBottom, section4);
         };
 
         return () => (window.onscroll = null);
