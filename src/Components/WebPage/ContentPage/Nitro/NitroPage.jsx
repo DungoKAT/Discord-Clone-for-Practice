@@ -55,7 +55,6 @@ const NitroPage = () => {
                 questionBoxWrap.style.animation = "none";
             }, 300);
         }
-        console.log("Tab: ", tabSelected);
     };
 
     return (
@@ -165,7 +164,7 @@ const NitroPage = () => {
                                             )}
                                         </div>
                                         <div className="min-h-[52px] flex justify-center items-center">
-                                            {plans.nitro.includes("/src") ? (
+                                            {plans.nitro.includes("/") ? (
                                                 <img
                                                     className="max-mobile479:max-w-[14px]"
                                                     src={plans.nitro}
