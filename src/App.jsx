@@ -66,9 +66,8 @@ function App() {
                 {
                     path: "/servers",
                     element: <DiscoverPage />,
-                    async loader({ params, request }) {
+                    async loader({ request }) {
                         const url = new URL(request.url);
-                        // console.log(params);
                         return await fetch(`${baseURL}${url.search}`).then(
                             (response) => response.json()
                         );
@@ -77,7 +76,7 @@ function App() {
                         {
                             path: "/servers",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}${url.search}`
@@ -87,7 +86,7 @@ function App() {
                         {
                             path: "/servers/gaming",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}/gaming${url.search}`
@@ -97,7 +96,7 @@ function App() {
                         {
                             path: "/servers/entertainment",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}/entertainment${url.search}`
@@ -107,7 +106,7 @@ function App() {
                         {
                             path: "/servers/education",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}/education${url.search}`
@@ -117,7 +116,7 @@ function App() {
                         {
                             path: "/servers/science&tech",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}/science&tech${url.search}`
@@ -127,7 +126,7 @@ function App() {
                         {
                             path: "/servers/music",
                             element: <CommuServer />,
-                            async loader({ params, request }) {
+                            async loader({ request }) {
                                 const url = new URL(request.url);
                                 return await fetch(
                                     `${baseURL}/music${url.search}`
