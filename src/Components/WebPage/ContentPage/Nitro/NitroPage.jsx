@@ -149,9 +149,7 @@ const NitroPage = () => {
                                             {plans.feature}
                                         </p>
                                         <div className="min-h-[52px] flex justify-center items-center">
-                                            {plans.nitroBasic.includes(
-                                                "/src"
-                                            ) ? (
+                                            {plans.nitroBasic.includes("/") ? (
                                                 <img
                                                     className="max-mobile479:max-w-[14px]"
                                                     src={plans.nitroBasic}
