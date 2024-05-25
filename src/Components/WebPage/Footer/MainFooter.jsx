@@ -31,7 +31,6 @@ const MainFooter = () => {
                             <button
                                 className="flex items-center font-ggsansNormal text-sm text-white text-start leading-[18px]"
                                 onClick={() => {
-                                    console.log(isDropdownShow);
                                     setIsDropdownShow(!isDropdownShow);
                                 }}
                             >

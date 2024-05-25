@@ -20,31 +20,14 @@ import AppPage from "./Components/AppPage/AppPage.jsx";
 import "./App.css";
 
 function App() {
-    // const [data, setData] = useState([]);
-
-    // useEffect(() => {
-    //     axios
-    //         .get(
-    //             "https://37d36d86-cec8-4380-abd2-67b1bd94b668-00-2ah1tranb08d9.riker.replit.dev/servers"
-    //         )
-    //         .then((response) => {
-    //             setData(response.data);
-    //         });
-    // }, []);
-    // console.log("Data: ", data);
-
     const baseURL = "https://node-servers-api-vercel.vercel.app/servers";
-
     const loaderServerPath = async ({ params }) => {
-        console.log("Params: ", params);
         const res = await fetch(`${baseURL}/${params.serverPathName}`);
-        console.log("Response: ", res);
         if (res.status === 404) {
             throw new Response("Not Found", { status: 404 });
         }
         return res.json();
     };
-
     const router = createBrowserRouter([
         {
             path: "/",

@@ -42,14 +42,11 @@ const ImageSlider = () => {
         const handleResize = () => {
             if (window.innerWidth < 767) {
                 setSlideToShow(1);
-                console.log("True 767");
             } else if (window.innerWidth < 1440) {
                 setSlideToShow(2);
-                console.log("True 1280");
             } else if (window.innerWidth > 1440) {
                 setSlideToShow(3);
             }
-            console.log("Window width: ", window.innerWidth);
         };
         window.addEventListener("resize", handleResize);
     }, []);

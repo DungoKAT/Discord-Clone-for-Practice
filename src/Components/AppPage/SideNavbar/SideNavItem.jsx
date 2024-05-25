@@ -9,9 +9,9 @@ const SideItem = ({
     tooltipText,
     setCreateServerModalOpen,
 }) => {
-    console.log(
-        id === serverSelect && "ID: " + id + "  ServerSelect: " + serverSelect
-    );
+    // console.log(
+    //     id === serverSelect && "ID: " + id + "  ServerSelect: " + serverSelect
+    // );
     return (
         <>
             <div className="relative flex items-center mb-2 px-3">

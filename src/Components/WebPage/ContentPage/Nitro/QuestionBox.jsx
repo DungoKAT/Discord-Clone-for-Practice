@@ -16,26 +16,6 @@ const QuestionBox = ({
             setQuestionOpen(-1);
         }
     };
-
-    // useEffect(() => {
-    //     if (questionOpen === questionIndex) {
-    //         document.addEventListener("click", handleClickOutside, true);
-    //     }
-    //     console.log(questionOpen === questionIndex);
-    // }, [questionIndex, questionOpen]);
-
-    // const refOne = useRef(null);
-
-    // const handleClickOutside = (e) => {
-    //     if (!refOne.current.contains(e.target)) {
-    //         console.log("Click outside");
-    //         console.log(refOne.current);
-    //         setQuestionOpen(-1);
-    //     } else {
-    //         console.log("Click inside");
-    //     }
-    // };
-
     return (
         <div
             className={

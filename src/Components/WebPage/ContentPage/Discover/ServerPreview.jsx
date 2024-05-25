@@ -8,7 +8,6 @@ import ChatIcon from "../../../../assets/DiscoverPage/CommuServers/Midjourney/Ch
 const ServerPreview = () => {
     const loaderServerData = useLoaderData();
     const location = useLocation();
-    console.log("location: ", location);
     const hasSocial = Object.prototype.hasOwnProperty.call(
         loaderServerData,
         "social"
@@ -42,7 +41,6 @@ const ServerPreview = () => {
 export default ServerPreview;
 
 const DesktopComponent = ({ loaderServerData, hasSocial, location }) => {
-    console.log("Loader Server Data: ", loaderServerData);
     return (
         <section className="max-w-[1260px] w-full max-tablet991:hidden">
             <div className="w-full -mt-[52px] px-10">
