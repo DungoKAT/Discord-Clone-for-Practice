@@ -279,7 +279,7 @@ const CareersPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full pt-[90px] pb-[120px] bg-secondary-s1 max-tablet991:pt-[120px] mb-20">
+            <section className="w-full pt-[90px] pb-[120px] bg-secondary-s1 max-tablet991:pt-[120px]">
                 <div className="maxWidth1180">
                     <h2
                         className="mb-10 text-[42px] text-white font-semibold font-gintoNormal leading-[50px]
